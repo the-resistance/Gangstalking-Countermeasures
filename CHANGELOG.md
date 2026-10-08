@@ -6,8 +6,8 @@ This file records completed repository documentation changes in reverse chronolo
 
 | Timestamp | Document | Previous Version | New Version | Change | Author |
 |-----------|----------|------------------|-------------|--------|--------|
-| 2026-10-08T11:13:04-05:00 | `scenarios/INDEX.md` | 1.0.0 | 1.1.0 | Added SCN-001 with its category, original observation date, and corrected current version. | Kevin Mahan |
 | 2026-10-08T11:12:31-05:00 | `scenarios/001-audible-beeping-transitioning.md` | 1.0.0 | 1.0.1 | Restored the exact supplied original observation wording under the protected marker and recorded the correction while preserving version 1.0.0 wording. | Kevin Mahan |
+| 2026-10-08T11:13:04-05:00 | `scenarios/INDEX.md` | 1.0.0 | 1.1.0 | Added SCN-001 with its category, original observation date, and corrected current version. | Kevin Mahan |
 | 2026-10-08T11:11:19-05:00 | `scripts/README.md` | 1.0.0 | 1.0.1 | Documented accepted countermeasure filename forms and the validator compatibility update. | Kevin Mahan |
 | 2026-10-08T11:11:19-05:00 | `countermeasures/INDEX.md` | 1.0.0 | 1.1.0 | Added separately linked entries for CM-001 and CM-002. | Kevin Mahan |
 | 2026-10-08T11:09:34-05:00 | `scripts/validate_integrity.py` | N/A | N/A | Limited permanent-identifier history checks to the selected comparison baseline so new identifiers are not mistaken for retired IDs from the current change. | Kevin Mahan |
