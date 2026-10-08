@@ -69,3 +69,28 @@ This is the author's personal statement of determination to continue documenting
 - **Strategic methodology:** BlitzWaffe — Aggressive Strategic Reasoning Core (ASRC)
 - **Project:** Observation & Countermeasure Field Manual
 - **Initial date:** October 8, 2026
+
+## Repository Documentation
+
+- [Scenario Library](scenarios/INDEX.md)
+- [Countermeasure Library](countermeasures/INDEX.md)
+- [Evidence Documentation Standards](evidence/README.md)
+- [Documentation Validation Tools](scripts/README.md)
+- [Versioning Policy](governance/VERSIONING.md)
+- [Anti-Drift Policy](governance/ANTI_DRIFT.md)
+
+## Document Metadata
+
+- **Document Title:** Observation & Countermeasure Field Manual
+- **Document ID:** README-001
+- **Author:** Kevin Mahan
+- **Version:** 1.1.0
+- **Created:** 2026-10-08T09:39:41-05:00
+- **Last Updated:** 2026-10-08T10:45:33-05:00
+
+## Revision History
+
+| Version | Timestamp | Description | Author |
+|---------|-----------|-------------|--------|
+| 1.0.0 | 2026-10-08T09:39:41-05:00 | Initial publication of the mission-focused repository README. | Kevin Mahan |
+| 1.1.0 | 2026-10-08T10:45:33-05:00 | Added concise links to the documentation libraries, evidence standards, validation tools, and governance policies. | Kevin Mahan |
