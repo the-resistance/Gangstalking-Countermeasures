@@ -3,9 +3,10 @@ Document Title: Scenario #001: Audible Beeping During Transitioning
 Document ID: SCN-001
 Scenario Number: SCN-001
 Author: Kevin Mahan
-Version: 1.0.1
+Version: 1.0.2
 Created: 2026-10-08T11:07:03-05:00
-Last Updated: 2026-10-08T11:12:31-05:00
+Last Updated: 2026-10-08T11:15:35-05:00
+Original Observation: 2026-10-08T04:25:00-05:00
 Original Observation Date: 2026-10-08
 Original Observation Time: 04:25:00
 Time Zone: America/Chicago (CDT, UTC-05:00)
@@ -209,6 +210,16 @@ The source of the sound was not independently identified during the initial obse
 
 **Correction timestamp:** 2026-10-08T11:12:31-05:00
 
+### Correction COR-002 — Record the original observation timestamp in ISO 8601 metadata
+
+**Previous metadata in version 1.0.1:** The original observation date and time were recorded as separate fields.
+
+**Correction:** Added `Original Observation: 2026-10-08T04:25:00-05:00` to the scenario metadata. The original observation text and its existing date and time fields remain unchanged.
+
+**Reason:** The Phase 4 specification requires the original observation timestamp to be recorded in the requested canonical form, separately from document creation and modification timestamps.
+
+**Correction timestamp:** 2026-10-08T11:15:35-05:00
+
 ## Governance References
 
 - [Versioning Policy](../governance/VERSIONING.md)
@@ -220,3 +231,4 @@ The source of the sound was not independently identified during the initial obse
 |---------|-----------|-------------|--------|
 | 1.0.0 | 2026-10-08T11:07:03-05:00 | Initial publication of Scenario #001 from the supplied reported observation; no independent source identification or evidence is claimed. | Kevin Mahan |
 | 1.0.1 | 2026-10-08T11:12:31-05:00 | Restored the exact supplied original observation wording and documented the correction; preserved the version 1.0.0 wording above. | Kevin Mahan |
+| 1.0.2 | 2026-10-08T11:15:35-05:00 | Added the original observation's ISO 8601 metadata timestamp and documented the correction; preserved prior history. | Kevin Mahan |
