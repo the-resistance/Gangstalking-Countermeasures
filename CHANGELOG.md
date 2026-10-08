@@ -6,6 +6,14 @@ This file records completed repository documentation changes in reverse chronolo
 
 | Timestamp | Document | Previous Version | New Version | Change | Author |
 |-----------|----------|------------------|-------------|--------|--------|
+| 2026-10-08T11:13:04-05:00 | `scenarios/INDEX.md` | 1.0.0 | 1.1.0 | Added SCN-001 with its category, original observation date, and corrected current version. | Kevin Mahan |
+| 2026-10-08T11:12:31-05:00 | `scenarios/001-audible-beeping-transitioning.md` | 1.0.0 | 1.0.1 | Restored the exact supplied original observation wording under the protected marker and recorded the correction while preserving version 1.0.0 wording. | Kevin Mahan |
+| 2026-10-08T11:11:19-05:00 | `scripts/README.md` | 1.0.0 | 1.0.1 | Documented accepted countermeasure filename forms and the validator compatibility update. | Kevin Mahan |
+| 2026-10-08T11:11:19-05:00 | `countermeasures/INDEX.md` | 1.0.0 | 1.1.0 | Added separately linked entries for CM-001 and CM-002. | Kevin Mahan |
+| 2026-10-08T11:09:34-05:00 | `scripts/validate_integrity.py` | N/A | N/A | Limited permanent-identifier history checks to the selected comparison baseline so new identifiers are not mistaken for retired IDs from the current change. | Kevin Mahan |
+| 2026-10-08T11:07:03-05:00 | `scenarios/001-audible-beeping-transitioning.md` | N/A | 1.0.0 | Created SCN-001 from the supplied reported observation, preserving its 2026-10-08T04:25:00-05:00 observation time; no independent source or evidence is claimed. | Kevin Mahan |
+| 2026-10-08T11:07:03-05:00 | `countermeasures/001-independent-observation.md` | N/A | 1.0.0 | Created CM-001 for independent observation and sound-source investigation, linked to SCN-001. | Kevin Mahan |
+| 2026-10-08T11:07:03-05:00 | `countermeasures/002-pre-transition-auditory-masking.md` | N/A | 1.0.0 | Created CM-002 for evaluating pre-transition auditory masking, linked to SCN-001. | Kevin Mahan |
 | 2026-10-08T10:56:43-05:00 | `templates/EVIDENCE_LOG_TEMPLATE.md` | 1.1.1 | 1.1.2 | Replaced the remaining trailing-space break in the related-evidence field. | Kevin Mahan |
 | 2026-10-08T10:56:03-05:00 | `templates/APPENDMENT_TEMPLATE.md` | 1.1.0 | 1.1.1 | Replaced trailing-space line breaks with explicit Markdown breaks in metadata fields. | Kevin Mahan |
 | 2026-10-08T10:56:03-05:00 | `templates/EVIDENCE_LOG_TEMPLATE.md` | 1.1.0 | 1.1.1 | Replaced trailing-space line breaks with explicit Markdown breaks in evidence fields. | Kevin Mahan |

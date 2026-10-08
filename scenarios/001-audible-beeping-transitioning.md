@@ -3,9 +3,9 @@ Document Title: Scenario #001: Audible Beeping During Transitioning
 Document ID: SCN-001
 Scenario Number: SCN-001
 Author: Kevin Mahan
-Version: 1.0.0
+Version: 1.0.1
 Created: 2026-10-08T11:07:03-05:00
-Last Updated: 2026-10-08T11:07:03-05:00
+Last Updated: 2026-10-08T11:12:31-05:00
 Original Observation Date: 2026-10-08
 Original Observation Time: 04:25:00
 Time Zone: America/Chicago (CDT, UTC-05:00)
@@ -29,12 +29,23 @@ The reported relationship between the sound and transitioning prompted the devel
 
 The original account identified:
 
-- **Event:** Audible beeping.
-- **Activity:** Movement inside a parked vehicle.
-- **Time:** Approximately 04:25 AM CDT.
-- **Recurring condition:** Similar sound noticed upon awakening.
-- **Initial response:** Proposed use of headphones and music.
-- **Investigative question:** Does a repeatable relationship exist between transitioning and the occurrence of the sound?
+EVENT:
+Audible beeping.
+
+ACTIVITY:
+Movement inside a parked vehicle.
+
+TIME:
+Approximately 04:25 AM CDT.
+
+RECURRING CONDITION:
+Similar sound noticed upon awakening.
+
+INITIAL RESPONSE:
+Proposed use of headphones and music.
+
+INVESTIGATIVE QUESTION:
+Does a repeatable relationship exist between transitioning and the occurrence of the sound?
 
 The source of the sound was not independently identified during the initial observation.
 <!-- END PROTECTED: original-observation -->
@@ -169,6 +180,35 @@ For actual supporting material, create or update an evidence record using the [E
 
 No appendments are recorded at initial publication. Subsequent observations or findings must be added chronologically as uniquely identified appendments; do not alter the protected original observation.
 
+## Correction Records
+
+### Correction COR-001 — Restore the supplied original account wording
+
+**Original statement as published in version 1.0.0:**
+
+On October 8, 2026, at approximately 4:25 AM Central Daylight Time, Kevin Mahan reported hearing audible beeping associated with movement inside his parked vehicle.
+
+Similar beeping had previously been noticed upon awakening.
+
+The reported relationship between the sound and transitioning prompted the development of an independent observation procedure and a proposed auditory countermeasure.
+
+The original account identified:
+
+- **Event:** Audible beeping.
+- **Activity:** Movement inside a parked vehicle.
+- **Time:** Approximately 04:25 AM CDT.
+- **Recurring condition:** Similar sound noticed upon awakening.
+- **Initial response:** Proposed use of headphones and music.
+- **Investigative question:** Does a repeatable relationship exist between transitioning and the occurrence of the sound?
+
+The source of the sound was not independently identified during the initial observation.
+
+**Correction:** Restored the supplied original account's exact field labels and wording in the protected Original Observation section.
+
+**Reason:** The initial publication restyled the account's field labels, although its substance was retained. The supplied observation is a historical record and must retain its original wording.
+
+**Correction timestamp:** 2026-10-08T11:12:31-05:00
+
 ## Governance References
 
 - [Versioning Policy](../governance/VERSIONING.md)
@@ -179,3 +219,4 @@ No appendments are recorded at initial publication. Subsequent observations or f
 | Version | Timestamp | Description | Author |
 |---------|-----------|-------------|--------|
 | 1.0.0 | 2026-10-08T11:07:03-05:00 | Initial publication of Scenario #001 from the supplied reported observation; no independent source identification or evidence is claimed. | Kevin Mahan |
+| 1.0.1 | 2026-10-08T11:12:31-05:00 | Restored the exact supplied original observation wording and documented the correction; preserved the version 1.0.0 wording above. | Kevin Mahan |

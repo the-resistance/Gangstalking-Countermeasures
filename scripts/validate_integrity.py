@@ -159,7 +159,7 @@ def historical_ids(root: Path, base: str, directory: str) -> tuple[set[str], set
             )
             if re.fullmatch(r"(?:SCN|CM)-\d{3}", value)
         )
-    log = git(root, "log", "--all", "-p", "--", f"{directory}/*.md", check=False)
+    log = git(root, "log", "-p", base, "--", f"{directory}/*.md", check=False)
     ever_ids = set(
         re.findall(r"(?m)^\+\s*(?:Document ID|Scenario Number|Countermeasure Number):\s*((?:SCN|CM)-\d{3})\s*$", log.stdout)
     )

@@ -2,9 +2,9 @@
 Document Title: Documentation Validation Tools
 Document ID: GOV-VALIDATION-001
 Author: Kevin Mahan
-Version: 1.0.0
+Version: 1.0.1
 Created: 2026-10-08T10:36:37-05:00
-Last Updated: 2026-10-08T10:36:37-05:00
+Last Updated: 2026-10-08T11:11:19-05:00
 ---
 
 # Documentation Validation Tools
@@ -27,7 +27,7 @@ The integrity validator uses stable `Original Observation` sections and matching
 
 ## Validation Rules
 
-- `validate_documentation.py` checks metadata presence, unique document identifiers, scenario/countermeasure naming, required sections, references, relative Markdown links, and index entries.
+- `validate_documentation.py` checks metadata presence, unique document identifiers, scenario/countermeasure naming, required sections, references, relative Markdown links, and index entries. Countermeasure filenames may use `NNN-descriptive-name.md` or the optional `NNN-descriptive-name-countermeasure.md` suffix.
 - `validate_versions.py` checks semantic versions, offset-aware ISO 8601 timestamps, revision history, creation timestamp preservation, and valid version increments for changed documents.
 - `validate_integrity.py` compares changed documentation with Git history and reports removed or altered observations, evidence records, appendments, identifiers, scenario files, and revision history.
 
@@ -38,3 +38,4 @@ See the [Versioning Policy](../governance/VERSIONING.md) and [Anti-Drift Policy]
 | Version | Timestamp | Description | Author |
 |---------|-----------|-------------|--------|
 | 1.0.0 | 2026-10-08T10:36:37-05:00 | Initial publication of documentation validation tool guidance. | Kevin Mahan |
+| 1.0.1 | 2026-10-08T11:11:19-05:00 | Documented both accepted countermeasure filename forms used by repository architecture and scenario modules. | Kevin Mahan |

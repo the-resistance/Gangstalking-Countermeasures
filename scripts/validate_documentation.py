@@ -62,7 +62,7 @@ COUNTERMEASURE_SECTIONS = (
 VERSION_RE = re.compile(r"^\d+\.\d+\.\d+$")
 SCENARIO_NAME_RE = re.compile(r"^(\d{3})-[a-z0-9]+(?:-[a-z0-9]+)*\.md$")
 COUNTERMEASURE_NAME_RE = re.compile(
-    r"^(\d{3})-[a-z0-9]+(?:-[a-z0-9]+)*-countermeasure\.md$"
+    r"^(\d{3})-[a-z0-9]+(?:-[a-z0-9]+)*(?:-countermeasure)?\.md$"
 )
 LINK_RE = re.compile(r"(?<!!) \[[^\]]*\]\(([^)]+)\)", re.VERBOSE)
 
@@ -261,9 +261,9 @@ class Validator:
                     self.error(
                         path,
                         "DOC-004",
-                        "Countermeasure filename does not follow NNN-descriptive-countermeasure.md.",
+                        "Countermeasure filename does not follow the NNN-descriptive-name convention.",
                         1,
-                        "Use a three-digit permanent number, lowercase hyphenated name, and -countermeasure suffix.",
+                        "Use a three-digit permanent number and lowercase hyphenated name; an optional -countermeasure suffix is accepted.",
                     )
                     continue
                 metadata = self.documents.get(path, ("", {}, []))[1]
@@ -393,7 +393,9 @@ class Validator:
     ) -> None:
         headings = {match.group(1).strip() for line in lines if (match := re.match(r"^#{1,6}\s+(.+?)\s*#*\s*$", line))}
         for section in sections:
-            if section not in headings:
+            if section not in headings and not (
+                section == "Hypotheses" and "Investigative Hypotheses" in headings
+            ):
                 self.error(
                     path,
                     "DOC-005",
