@@ -2,6 +2,12 @@
 
 This file records completed repository documentation changes in reverse chronological order. See the [Versioning Policy](governance/VERSIONING.md) for entry requirements.
 
+## 2026-11-03
+
+| Timestamp | Document | Previous Version | New Version | Change | Author |
+|-----------|----------|------------------|-------------|--------|--------|
+| 2026-11-03T13:12:20-06:00 | `research/001-voice-to-skull-v2k.md` | N/A | 1.0.0 | Created RSH-001, the Voice-to-Skull (V2K) independent research manual, from the supplied working draft 0.1; no findings or evidence are claimed beyond the author's reported observations. | Kevin Mahan |
+
 ## 2026-10-08
 
 | Timestamp | Document | Previous Version | New Version | Change | Author |
