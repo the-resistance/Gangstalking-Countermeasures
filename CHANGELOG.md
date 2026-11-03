@@ -6,6 +6,16 @@ This file records completed repository documentation changes in reverse chronolo
 
 | Timestamp | Document | Previous Version | New Version | Change | Author |
 |-----------|----------|------------------|-------------|--------|--------|
+| 2026-11-03T13:35:51-06:00 | `README.md` | 1.1.0 | 1.2.0 | Linked the central research and investigative manual and updated the repository-development navigation note. | Kevin Mahan |
+| 2026-11-03T13:35:51-06:00 | `manual/04-technology-research.md` | N/A | 1.0.0 | Created the technology research chapter with evidence-status labels, historical research limits, and documentary traceability requirements. | Kevin Mahan |
+| 2026-11-03T13:35:51-06:00 | `manual/05-investigative-methodology.md` | N/A | 1.0.0 | Created proposed repeatable procedures for baseline recording, equipment documentation, audio review, blind listening, alternatives, and source identification. | Kevin Mahan |
+| 2026-11-03T13:35:51-06:00 | `manual/06-evidence-preservation.md` | N/A | 1.0.0 | Created supplementary evidence-handling guidance referencing existing standards and templates without weakening them. | Kevin Mahan |
+| 2026-11-03T13:35:51-06:00 | `manual/07-references.md` | N/A | 1.0.0 | Created a categorized reference index that records the existing incomplete Frey research lead and gaps without inventing citations. | Kevin Mahan |
+| 2026-11-03T13:34:17-06:00 | `MANUAL.md` | N/A | 1.0.0 | Created the central navigation document linking the manual chapters and existing research, scenario, countermeasure, evidence, and governance records. | Kevin Mahan |
+| 2026-11-03T13:34:17-06:00 | `manual/00-introduction.md` | N/A | 1.0.0 | Created the introduction from the author's stated motivation in RSH-001, preserving uncertainty about causes and sources. | Kevin Mahan |
+| 2026-11-03T13:34:17-06:00 | `manual/01-research-objectives.md` | N/A | 1.0.0 | Created the objectives chapter covering documentation, measurement, hypotheses, research, preservation, verification, reproducibility, and review. | Kevin Mahan |
+| 2026-11-03T13:34:17-06:00 | `manual/02-observations.md` | N/A | 1.0.0 | Created an observation-category index based on RSH-001 and labeled categories without documented observations as such. | Kevin Mahan |
+| 2026-11-03T13:34:17-06:00 | `manual/03-terminology.md` | N/A | 1.0.0 | Created the project-specific terminology registry with definitions, reported observations, alternatives, measurement needs, verification criteria, and evidence status. | Kevin Mahan |
 | 2026-11-03T13:12:20-06:00 | `research/001-voice-to-skull-v2k.md` | N/A | 1.0.0 | Created RSH-001, the Voice-to-Skull (V2K) independent research manual, from the supplied working draft 0.1; no findings or evidence are claimed beyond the author's reported observations. | Kevin Mahan |
 
 ## 2026-10-08

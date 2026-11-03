@@ -52,7 +52,7 @@ This sequence provides a high-level framework for maintaining continuity and lea
 
 The repository is intended to expand through independent documentation modules. Future content categories may include observation scenarios, investigative research, countermeasure procedures, evidence collection methodologies, technical analysis, research references, historical incident records, and documentation governance. These are planned categories, not claims about existing materials.
 
-A centralized table of contents will eventually organize the growing collection as documents are added.
+The [Research and Investigative Field Manual](MANUAL.md) provides a central reading path and links to the repository's independent research, scenario, countermeasure, and evidence records.
 
 ## Author's Statement
 
@@ -84,9 +84,9 @@ This is the author's personal statement of determination to continue documenting
 - **Document Title:** Observation & Countermeasure Field Manual
 - **Document ID:** README-001
 - **Author:** Kevin Mahan
-- **Version:** 1.1.0
+- **Version:** 1.2.0
 - **Created:** 2026-10-08T09:39:41-05:00
-- **Last Updated:** 2026-10-08T10:45:33-05:00
+- **Last Updated:** 2026-11-03T13:35:51-06:00
 
 ## Revision History
 
@@ -94,3 +94,4 @@ This is the author's personal statement of determination to continue documenting
 |---------|-----------|-------------|--------|
 | 1.0.0 | 2026-10-08T09:39:41-05:00 | Initial publication of the mission-focused repository README. | Kevin Mahan |
 | 1.1.0 | 2026-10-08T10:45:33-05:00 | Added concise links to the documentation libraries, evidence standards, validation tools, and governance policies. | Kevin Mahan |
+| 1.2.0 | 2026-11-03T13:35:51-06:00 | Linked the central research and investigative manual and updated the repository-development navigation note. | Kevin Mahan |
