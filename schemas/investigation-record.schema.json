@@ -1,0 +1,440 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:the-resistance:gangstalking-countermeasures:schemas:investigation-record:1",
+  "title": "Investigation Record",
+  "description": "A provenance-bearing record. Its contents are not thereby established as true.",
+  "type": "object",
+  "required": [
+    "record_id",
+    "record_type",
+    "evidence_state",
+    "evidence_state_reason",
+    "provenance"
+  ],
+  "properties": {
+    "record_id": {
+      "type": "string",
+      "pattern": "^(CLM|SRC|ENT|REL|EV|EVT|INS|EXP|CON)-[A-Za-z0-9][A-Za-z0-9._:-]*$"
+    },
+    "record_type": {
+      "enum": [
+        "claim",
+        "source",
+        "entity",
+        "relationship",
+        "evidence",
+        "event",
+        "instrument",
+        "experiment",
+        "conclusion"
+      ]
+    },
+    "evidence_state": {
+      "enum": [
+        "OBSERVED",
+        "REPRODUCED",
+        "CORRELATED",
+        "MECHANISM_SUPPORTED",
+        "ATTRIBUTION_CANDIDATE",
+        "ATTRIBUTION_SUPPORTED",
+        "CLAIM_ONLY",
+        "CONTRADICTED",
+        "UNRESOLVED"
+      ]
+    },
+    "evidence_state_reason": {
+      "type": "string",
+      "minLength": 1
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "provenance": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "kind",
+          "locator"
+        ],
+        "properties": {
+          "kind": {
+            "enum": [
+              "record",
+              "publication",
+              "court_filing",
+              "measurement",
+              "observation",
+              "analyst_note",
+              "other"
+            ]
+          },
+          "locator": {
+            "type": "string",
+            "minLength": 1
+          },
+          "note": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "related_record_ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^(CLM|SRC|ENT|REL|EV|EVT|INS|EXP|CON)-[A-Za-z0-9][A-Za-z0-9._:-]*$"
+      }
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "record_type": {
+            "const": "claim"
+          }
+        },
+        "required": [
+          "record_type"
+        ]
+      },
+      "then": {
+        "required": [
+          "claim_text"
+        ],
+        "properties": {
+          "record_id": {
+            "pattern": "^CLM-"
+          },
+          "claim_text": {
+            "type": "string",
+            "minLength": 1
+          },
+          "claimant": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "record_type": {
+            "const": "source"
+          }
+        },
+        "required": [
+          "record_type"
+        ]
+      },
+      "then": {
+        "required": [
+          "title",
+          "source_kind"
+        ],
+        "properties": {
+          "record_id": {
+            "pattern": "^SRC-"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_kind": {
+            "type": "string",
+            "minLength": 1
+          },
+          "locator": {
+            "type": "string"
+          },
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "record_type": {
+            "const": "entity"
+          }
+        },
+        "required": [
+          "record_type"
+        ]
+      },
+      "then": {
+        "required": [
+          "display_name",
+          "entity_kind"
+        ],
+        "properties": {
+          "record_id": {
+            "pattern": "^ENT-"
+          },
+          "display_name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "entity_kind": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "record_type": {
+            "const": "relationship"
+          }
+        },
+        "required": [
+          "record_type"
+        ]
+      },
+      "then": {
+        "required": [
+          "subject_id",
+          "predicate",
+          "object_id"
+        ],
+        "properties": {
+          "record_id": {
+            "pattern": "^REL-"
+          },
+          "subject_id": {
+            "type": "string",
+            "pattern": "^(CLM|SRC|ENT|REL|EV|EVT|INS|EXP|CON)-[A-Za-z0-9][A-Za-z0-9._:-]*$"
+          },
+          "predicate": {
+            "type": "string",
+            "minLength": 1
+          },
+          "object_id": {
+            "type": "string",
+            "pattern": "^(CLM|SRC|ENT|REL|EV|EVT|INS|EXP|CON)-[A-Za-z0-9][A-Za-z0-9._:-]*$"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "record_type": {
+            "const": "evidence"
+          }
+        },
+        "required": [
+          "record_type"
+        ]
+      },
+      "then": {
+        "required": [
+          "evidence_kind"
+        ],
+        "properties": {
+          "record_id": {
+            "pattern": "^EV-\\d{8}-\\d{3}$"
+          },
+          "evidence_kind": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[A-Fa-f0-9]{64}$"
+          },
+          "asset_locator": {
+            "type": "string",
+            "minLength": 1
+          },
+          "parent_record_ids": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^(CLM|SRC|ENT|REL|EV|EVT|INS|EXP|CON)-[A-Za-z0-9][A-Za-z0-9._:-]*$"
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "record_type": {
+            "const": "event"
+          }
+        },
+        "required": [
+          "record_type"
+        ]
+      },
+      "then": {
+        "required": [
+          "started_at",
+          "modalities"
+        ],
+        "properties": {
+          "record_id": {
+            "pattern": "^EVT-"
+          },
+          "started_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "ended_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "modalities": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "record_type": {
+            "const": "instrument"
+          }
+        },
+        "required": [
+          "record_type"
+        ]
+      },
+      "then": {
+        "required": [
+          "manufacturer",
+          "model"
+        ],
+        "properties": {
+          "record_id": {
+            "pattern": "^INS-"
+          },
+          "manufacturer": {
+            "type": "string",
+            "minLength": 1
+          },
+          "model": {
+            "type": "string",
+            "minLength": 1
+          },
+          "serial": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "record_type": {
+            "const": "experiment"
+          }
+        },
+        "required": [
+          "record_type"
+        ]
+      },
+      "then": {
+        "required": [
+          "hypothesis",
+          "procedure"
+        ],
+        "properties": {
+          "record_id": {
+            "pattern": "^EXP-"
+          },
+          "hypothesis": {
+            "type": "string",
+            "minLength": 1
+          },
+          "predicted_result": {
+            "type": "string"
+          },
+          "procedure": {
+            "type": "string",
+            "minLength": 1
+          },
+          "result": {
+            "type": "string"
+          },
+          "limitations": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "record_type": {
+            "const": "conclusion"
+          }
+        },
+        "required": [
+          "record_type"
+        ]
+      },
+      "then": {
+        "required": [
+          "conclusion_text",
+          "supporting_record_ids"
+        ],
+        "properties": {
+          "record_id": {
+            "pattern": "^CON-"
+          },
+          "conclusion_text": {
+            "type": "string",
+            "minLength": 1
+          },
+          "supporting_record_ids": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^(CLM|SRC|ENT|REL|EV|EVT|INS|EXP|CON)-[A-Za-z0-9][A-Za-z0-9._:-]*$"
+            }
+          },
+          "limitations": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "additionalProperties": true
+}

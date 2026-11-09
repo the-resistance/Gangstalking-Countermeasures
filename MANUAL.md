@@ -2,9 +2,9 @@
 Document Title: Research and Investigative Field Manual
 Document ID: MAN-ROOT-001
 Author: Kevin Mahan
-Version: 1.0.0
+Version: 1.1.0
 Created: 2026-11-03T13:34:17-06:00
-Last Updated: 2026-11-03T13:34:17-06:00
+Last Updated: 2026-11-08T20:12:00-06:00
 ---
 
 # Research and Investigative Field Manual
@@ -28,6 +28,8 @@ This manual is a navigation document for the repository's research, reported obs
 - [Scenario library](scenarios/INDEX.md), including [SCN-001 — Audible Beeping During Transitioning](scenarios/001-audible-beeping-transitioning.md)
 - [Countermeasure library](countermeasures/INDEX.md), including [CM-001 — Independent Observation and Sound-Source Identification](countermeasures/001-independent-observation.md) and [CM-002 — Pre-Transition Auditory Masking and Response Interruption](countermeasures/002-pre-transition-auditory-masking.md)
 - [Evidence Documentation Standards](evidence/README.md) and the [Evidence Log Template](templates/EVIDENCE_LOG_TEMPLATE.md)
+- [Evidence Record Model](docs/evidence-model.md) and its [JSON Schema](schemas/investigation-record.schema.json)
+- [Investigation Framework Architecture](docs/architecture/README.md)
 - [Documentation validation tools](scripts/README.md)
 - [Versioning Policy](governance/VERSIONING.md) and [Anti-Drift Policy](governance/ANTI_DRIFT.md)
 
@@ -42,3 +44,4 @@ Descriptions of personal experience are reports, not independent technical findi
 | Version | Timestamp | Description | Author |
 |---------|-----------|-------------|--------|
 | 1.0.0 | 2026-11-03T13:34:17-06:00 | Initial publication of the central manual navigation document; original records remain independently accessible. | Kevin Mahan |
+| 1.1.0 | 2026-11-08T20:12:00-06:00 | Linked the staged architecture proposal and shared evidence-record model. | Kevin Mahan |

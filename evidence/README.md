@@ -2,9 +2,9 @@
 Document Title: Evidence Documentation Standards
 Document ID: EVD-STANDARDS-001
 Author: Kevin Mahan
-Version: 1.1.0
+Version: 1.2.0
 Created: 2026-10-08T10:37:13-05:00
-Last Updated: 2026-10-08T10:42:49-05:00
+Last Updated: 2026-11-08T20:12:00-06:00
 ---
 
 # Evidence Documentation Standards
@@ -30,6 +30,8 @@ Assign a stable identifier in the format `EV-YYYYMMDD-NNN`, using the actual acq
 
 Keep original materials in access-controlled storage appropriate to their sensitivity. Public documentation should distinguish material preserved for private investigation from material suitable for public release. Do not automatically publish sensitive personal information or commit sensitive media or personally identifying information. Ensure recording, observation, storage, and evidence collection comply with applicable law.
 
+The [Evidence Record Model](../docs/evidence-model.md) and [JSON Schema](../schemas/investigation-record.schema.json) provide a machine-readable state and provenance envelope for future records. They do not replace these preservation, privacy, and integrity standards; a hash does not establish the truth or source of a file.
+
 When a record is published in Markdown, wrap its complete contents in matching machine-readable markers: `<!-- BEGIN EVIDENCE: EV-YYYYMMDD-NNN -->` and `<!-- END EVIDENCE: EV-YYYYMMDD-NNN -->`. The same permanent identifier must appear in both markers. These boundaries allow integrity checks to detect deleted or altered historical records.
 
 ## Missing Information
@@ -42,3 +44,4 @@ Use one of `NOT RECORDED`, `NOT AVAILABLE`, `NOT APPLICABLE`, or `PENDING VERIFI
 |---------|-----------|-------------|--------|
 | 1.0.0 | 2026-10-08T10:37:13-05:00 | Initial publication of evidence organization, integrity, provenance, and privacy standards. | Kevin Mahan |
 | 1.1.0 | 2026-10-08T10:42:49-05:00 | Established stable evidence record boundaries for automated historical integrity checks. | Kevin Mahan |
+| 1.2.0 | 2026-11-08T20:12:00-06:00 | Linked the shared evidence-record model and clarified that it supplements existing preservation standards. | Kevin Mahan |
