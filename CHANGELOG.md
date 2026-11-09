@@ -2,6 +2,16 @@
 
 This file records completed repository documentation changes in reverse chronological order. See the [Versioning Policy](governance/VERSIONING.md) for entry requirements.
 
+## 2026-11-08
+
+| Timestamp | Document | Previous Version | New Version | Change | Author |
+|-----------|----------|------------------|-------------|--------|--------|
+| 2026-11-08T20:12:00-06:00 | `docs/architecture/README.md` | N/A | 1.0.0 | Created an audited current-state snapshot and staged architecture proposal, with future work clearly separated from implemented capabilities. | Kevin Mahan |
+| 2026-11-08T20:12:00-06:00 | `docs/evidence-model.md` | N/A | 1.0.0 | Created the shared evidence-state vocabulary, record-type guidance, and provenance requirements. | Kevin Mahan |
+| 2026-11-08T20:12:00-06:00 | `schemas/investigation-record.schema.json` | N/A | N/A | Added a JSON Schema for provenance-bearing investigation records across claims, sources, entities, relationships, evidence, events, instruments, experiments, and conclusions. | Kevin Mahan |
+| 2026-11-08T20:12:00-06:00 | `evidence/README.md` | 1.1.0 | 1.2.0 | Linked the shared evidence-record model while preserving the existing evidence-handling standards. | Kevin Mahan |
+| 2026-11-08T20:12:00-06:00 | `MANUAL.md` | 1.0.0 | 1.1.0 | Added navigation links to the architecture proposal and machine-readable evidence model. | Kevin Mahan |
+
 ## 2026-11-03
 
 | Timestamp | Document | Previous Version | New Version | Change | Author |
