@@ -2,9 +2,9 @@
 Document Title: Phase 2A Scientific Bibliography
 Document ID: RSH-PHASE2A-001
 Author: GitHub Copilot
-Version: 1.0.0
+Version: 1.1.0
 Created: 2026-11-16T13:57:21-06:00
-Last Updated: 2026-11-16T13:57:21-06:00
+Last Updated: 2026-11-16T14:10:33-06:00
 ---
 
 # Phase 2A Scientific Bibliography
@@ -13,7 +13,7 @@ Last Updated: 2026-11-16T13:57:21-06:00
 
 This controlled increment addresses source gaps identified in the [Phase 1 audit](../audits/PHASE-1-REPOSITORY-AUDIT.md), especially its research coverage matrix and bibliography assessment. It covers the existing technical topics in [RSH-001](../../research/001-voice-to-skull-v2k.md) and the [technology research chapter](../../manual/04-technology-research.md). It does not report an experiment, incident finding, equipment deployment, or investigation record.
 
-Verification was attempted on 2026-11-16. The authoritative publication or index was consulted for bibliographic identity, and relevant source text was reviewed before a technical statement was classified as documented. A source's own experimental conditions and limits are kept separate from any incident-specific question. The bibliography below contains **one verified primary technical document**; the eight explicitly numbered leads are **UNVERIFIED** for their substantive findings. The NIST index records cited for two leads verify bibliographic metadata only, not the contents of those reports.
+Verification was attempted on 2026-11-16. The authoritative publication or index was consulted for bibliographic identity, and relevant source text was reviewed before a technical statement was classified as documented. A source's own experimental conditions and limits are kept separate from any incident-specific question. The bibliography below contains **two verified references**: one primary technical document and one conference publication checked against its conference index and abstract only. The eight explicitly numbered leads are **UNVERIFIED** for their substantive findings. The NIST index records cited for two leads verify bibliographic metadata only, not the contents of those reports.
 
 ## Source Verification Criteria
 
@@ -31,13 +31,23 @@ Acceptable sources include original peer-reviewed or conference papers, universi
 - **Classification:** **DOCUMENTED SCIENCE** for the source's bounded description of the test and reported comparison; this does not certify performance in other conditions.
 - **Repository topic:** Speech perception and intelligibility in noise; independent listening in RSH-001 sections 3.5 and 7.3.
 
+### V2 — Ultrasonic sound generation in a musical interface
+
+- **Citation:** Miha Ciglar. "An Ultrasound Based Instrument Generating Audible and Tactile Sound." *Proceedings of the International Conference on New Interfaces for Musical Expression*, Sydney, Australia, 2010, pp. 19-22. ISSN `2220-4806`; DOI `10.5281/zenodo.1177745`. Volume and issue are not specified in the index.
+- **Verified locator:** [Conference bibliography, 2010 proceedings entry and abstract](https://github.com/NIME-conference/NIME-bibliography/blob/f401a83a135958cb365997b8f10a2696905962ff/paper_proceedings/nime2010.bib). Citation metadata and the abstract were checked against this conference-maintained index; the DOI destination and full paper were not accessed.
+- **Relevant method:** The indexed abstract describes an interactive musical instrument using airborne ultrasound and discusses audible sound generation by self-demodulation during propagation in air.
+- **Conditions:** The abstract identifies airborne ultrasound and the instrument context, but does not state carrier frequency, exposure, distance, quantitative performance, controls, or independent replication.
+- **Limitations:** Only the abstract, not the full paper or underlying results, was reviewed. It does not establish practical range, intelligibility, reproduction, or use in an incident. The abstract's tactile application is not the subject of this bibliography.
+- **Classification:** **RESEARCH HYPOTHESIS** for applying the abstract-described method to repository questions; no experimental performance is independently established here.
+- **Repository topic:** Parametric ultrasonic and directional audio in RSH-001 section 3.3.
+
 ## Microwave Auditory Research
 
 **U1 — UNVERIFIED:** Allan H. Frey's original microwave auditory publications, RF-induced hearing, pulse conditions, proposed mechanisms, and reproducibility. The repository names Frey but does not supply a checked primary citation. Publisher and PubMed access failed during this review; neither an exact citation nor experimental details are asserted here. No event-specific RF exposure is established.
 
 ## Ultrasonic and Directional Audio Research
 
-**U2 — UNVERIFIED:** Primary literature on parametric acoustic arrays, ultrasonic carrier modulation, nonlinear propagation, self-demodulation, and experimental limitations. No primary paper or relevant experimental context was accessible and verified in this review; no range, intelligibility, or deployment claim is made.
+**U2 — UNVERIFIED:** Further primary literature and experimental results on parametric acoustic arrays, ultrasonic carrier modulation, nonlinear propagation, self-demodulation, and limitations. V2's abstract was reviewed, but its full paper and quantitative experimental conditions were not accessible; no range, intelligibility, or deployment claim is made.
 
 ## RF Demodulation and Nonlinear Effects
 
@@ -70,7 +80,7 @@ These are classifications of statements, not an automatic conversion to the sepa
 | DOCUMENTED SCIENCE | V1's source-described test and bounded subset comparison. |
 | EXPERIMENTALLY DEMONSTRATED CAPABILITY | None independently established by this review; an experiment and its conditions require direct verification. |
 | PATENT CLAIM | None reviewed; a patent claim alone does not demonstrate a working or deployed device. |
-| RESEARCH HYPOTHESIS | An incident-specific technical explanation remains a hypothesis until supported by appropriate evidence. |
+| RESEARCH HYPOTHESIS | Applying V2's abstract-described method or another technical explanation to a specific incident remains a hypothesis until supported by appropriate evidence. |
 | PERSONAL OBSERVATION | The reports in RSH-001 remain personal observations, not independent technical measurements. |
 | UNVERIFIED CLAIM | U1-U8 are leads, not established findings; unsupported attribution, intent, or deployment claims remain unverified. |
 
@@ -78,24 +88,25 @@ Published capabilities, proposed mechanisms, personal observations, and claims a
 
 ## Research Gaps and Unresolved Questions
 
-The Phase 1 audit's primary Frey citation gap remains unresolved, as do the ultrasonic, RF, perceptual-bias, and forensic-standard gaps above. Independent replication, experimental parameters, and restrictions on generalization require review of the actual publications. No recording, source signal, exposure, or incident-specific attribution was examined. Synthetic speech, voice cloning, resonance, and historical institutional relationships remain outside the verified source coverage of this increment.
+The Phase 1 audit's primary Frey citation gap remains unresolved, as do the experimental ultrasonic, RF, perceptual-bias, and forensic-standard gaps above. Independent replication, experimental parameters, and restrictions on generalization require review of the actual publications. No recording, source signal, exposure, or incident-specific attribution was examined. Synthetic speech, voice cloning, resonance, and historical institutional relationships remain outside the verified source coverage of this increment.
 
 ## Source Verification Limitations
 
-Direct DNS access to PubMed, Crossref, DOI, and NIST web sites failed; an additional browser attempt to PubMed was blocked. The official NTIA and NIST GitHub repositories were accessible. V1 was reviewed in the original technical document, while the two NIST records were metadata only. The DOI destinations, paywalled or full report texts, original Frey paper, and relevant standards were not accessed. This is a limited source review, not an exhaustive literature search or a completed resolution of the Phase 1 bibliography gap.
+Direct DNS access to PubMed, Crossref, DOI, and NIST web sites failed; an additional browser attempt to PubMed was blocked. The official NTIA, NIST, and NIME conference GitHub repositories were accessible. V1 was reviewed in the original technical document; V2 was reviewed only through its conference index and abstract; the two NIST records were metadata only. The DOI destinations, V2 full paper, full report texts, original Frey paper, and relevant standards were not accessed. This is a limited source review, not an exhaustive literature search or a completed resolution of the Phase 1 bibliography gap.
 
 ## Cross-Reference Mapping
 
 | Repository topic | Source or lead | Boundary |
 |---|---|---|
 | RSH-001 sections 3.1 and 6, RF auditory hypothesis | U1 | No paper or event-specific exposure verified. |
-| RSH-001 sections 3.3 and 3.2, directional audio and EMI | U2-U4 | No applicable experimental result or device verified. |
+| RSH-001 sections 3.3 and 3.2, directional audio and EMI | V2, U2-U4 | V2's abstract describes an ultrasonic method; no experimental performance or incident-specific device verified. |
 | RSH-001 sections 3.5 and 7.3, perception and listening | V1, U5-U6 | V1 concerns a specified intelligibility test, not open-ended incident transcription. |
 | RSH-001 sections 7.4-7.5 and preservation chapter | U7-U8 | External forensic report and standards text not reviewed. |
-| Phase 1 audit sections 5-7 | V1, U1-U8 | One source reviewed; remaining source gaps explicitly retained. |
+| Phase 1 audit sections 5-7 | V1-V2, U1-U8 | Two sources reviewed at different levels; remaining source gaps explicitly retained. |
 
 ## Revision History
 
 | Version | Timestamp | Description | Author |
 |---------|-----------|-------------|--------|
 | 1.0.0 | 2026-11-16T13:57:21-06:00 | Initial limited bibliography with one reviewed technical source and explicitly unverified research leads. | GitHub Copilot |
+| 1.1.0 | 2026-11-16T14:10:33-06:00 | Added a conference-indexed ultrasonic audio reference with abstract-only verification and explicit limitations. | GitHub Copilot |
