@@ -6,6 +6,14 @@ This file records completed repository documentation changes in reverse chronolo
 
 | Timestamp | Document | Previous Version | New Version | Change | Author |
 |-----------|----------|------------------|-------------|--------|--------|
+| 2026-11-16T16:15:58-06:00 | `README.md` | 1.2.0 | 1.3.0 | Added project identity, scoped research overview, bibliography and manual navigation, evidence-status guidance, reproducible documentation checks, and contribution guidance. | GitHub Copilot |
+| 2026-11-16T16:15:58-06:00 | `docs/research/PHASE-2A-SCIENTIFIC-BIBLIOGRAPHY.md` | 1.2.0 | 1.3.0 | Added a current summary of five full-text reviews and linked the separate URL audit without changing historical checkpoint records. | GitHub Copilot |
+| 2026-11-16T16:15:58-06:00 | `manual/07-references.md` | 1.1.0 | 1.2.0 | Linked the current source-verification status and citation URL audit while labeling the existing reference content as a historical baseline. | GitHub Copilot |
+| 2026-11-16T16:15:58-06:00 | `docs/audits/PHASE-2B-CITATION-URL-AUDIT.md` | N/A | 1.0.0 | Recorded URL-level access, identity, and verification for 15 distinct scientific citation URLs; retained inaccessible authoritative links. | GitHub Copilot |
+| 2026-11-16T16:15:58-06:00 | `docs/index.md` | N/A | 1.0.0 | Added a Markdown-based GitHub Pages landing page with research-topic navigation and source links. | GitHub Copilot |
+| 2026-11-16T16:15:58-06:00 | `docs/_config.yml` | N/A | N/A | Added minimal GitHub Pages Jekyll/Minima configuration and deferred canonical URL settings until the deployment hostname is confirmed. | GitHub Copilot |
+| 2026-11-16T16:15:58-06:00 | `docs/_includes/head.html` | N/A | N/A | Added explicit page-title and description metadata without generating an unconfigured canonical URL. | GitHub Copilot |
+| 2026-11-16T16:15:58-06:00 | `docs/robots.txt` | N/A | N/A | Added a crawler policy for the documentation site; omitted a sitemap directive until an absolute deployment URL is known. | GitHub Copilot |
 | 2026-11-16T15:56:43-06:00 | `CHANGELOG.md` | N/A | N/A | Clarified the 14:47 bibliography entry: 1.1.0 was the published main-branch baseline; the immediately preceding PR-branch version was 1.3.0, normalized to 1.2.0. | GitHub Copilot |
 | 2026-11-16T14:47:17-06:00 | `docs/research/PHASE-2A-SCIENTIFIC-BIBLIOGRAPHY.md` | 1.1.0 | 1.2.0 | Reviewed four attached primary PDFs, added page-cited findings and limitations, recorded metadata discrepancies and access boundaries, and consolidated the unmerged Phase 2A.1 working revisions into one formal increment. | GitHub Copilot |
 | 2026-11-16T14:28:32-06:00 | `docs/research/PHASE-2A-SCIENTIFIC-BIBLIOGRAPHY.md` | 1.2.0 | 1.3.0 | Recorded failed access to the supplied primary-source URLs and retained prior verification levels and open leads. | GitHub Copilot |

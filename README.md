@@ -1,5 +1,39 @@
 # Observation & Countermeasure Field Manual
 
+**Gangstalking Countermeasures — Khalisti \| BlitzWaffe Defense**
+
+Website: [Khalisti](https://khalisti.ai)
+
+This repository is a research archive and field manual for careful, evidence-focused examination of reported experiences, environmental observations, and lawful, nonviolent defensive research. It organizes source-based investigation without treating unverified surveillance allegations, intent, or attribution as established facts.
+
+Research topics include surveillance research; RF auditory phenomena and the microwave auditory effect; ultrasonic audio and directional audio; electromagnetic interference; audio forensics; digital evidence preservation; and signal analysis. A published physical effect or technical capability does not establish exposure, targeting, surveillance, or attribution in a specific incident.
+
+## Start Here
+
+- [Scientific bibliography and current source-verification status](docs/research/PHASE-2A-SCIENTIFIC-BIBLIOGRAPHY.md#current-verification-status)
+- [Citation URL audit](docs/audits/PHASE-2B-CITATION-URL-AUDIT.md)
+- [Research and Investigative Field Manual](MANUAL.md)
+- [RSH-001 — Voice-to-Skull research document](research/001-voice-to-skull-v2k.md)
+- [Documentation site source](docs/index.md) (GitHub Pages deployment has not been confirmed)
+
+## Research Scope and Evidence Status
+
+The archive distinguishes reported observations, research leads, hypotheses, source-supported findings, and independently verified results. Its technology coverage describes literature and questions for investigation; it does not determine the cause of an individual experience or establish that a technology was used in a particular event.
+
+The bibliography uses bounded classifications, including **DOCUMENTED SCIENCE**, **DOCUMENTED TECHNICAL GUIDANCE**, **EXPERIMENTALLY DEMONSTRATED CAPABILITY**, **RESEARCH HYPOTHESIS**, **PERSONAL OBSERVATION**, and **UNVERIFIED CLAIM**. The classification applies to the specific statement and evidence reviewed, not to an entire topic. Full-text review is not independent experimental replication. See the [bibliography](docs/research/PHASE-2A-SCIENTIFIC-BIBLIOGRAPHY.md) and [technology research chapter](manual/04-technology-research.md) for definitions and limitations.
+
+## Reproducible Research and Contributions
+
+The [investigative methodology](manual/05-investigative-methodology.md) and [evidence preservation chapter](manual/06-evidence-preservation.md) describe proposed practices for documenting conditions, preserving originals, recording analysis steps, and keeping interpretations separate from measurements. Documentation changes follow the repository's [versioning](governance/VERSIONING.md) and [anti-drift](governance/ANTI_DRIFT.md) policies. Run the Python 3 standard-library documentation checks before contributing:
+
+```sh
+python3 scripts/validate_documentation.py
+python3 scripts/validate_versions.py --base origin/main
+python3 scripts/validate_integrity.py --base origin/main
+```
+
+Contributions should cite identifiable primary or authoritative sources, state what source text was reviewed and under what conditions, preserve unresolved questions and historical records, and avoid unsupported causal or attribution claims. See the [Research and Investigative Field Manual](MANUAL.md) for existing research and evidence guidance.
+
 ## Mission
 
 The Observation & Countermeasure Field Manual is an expanding research archive for documenting unusual events, reported harassment, recurring environmental patterns, investigative observations, and defensive countermeasure research. Its mission is to support careful investigation, evidence-based understanding, and the development of lawful, nonviolent defensive knowledge.
@@ -84,9 +118,9 @@ This is the author's personal statement of determination to continue documenting
 - **Document Title:** Observation & Countermeasure Field Manual
 - **Document ID:** README-001
 - **Author:** Kevin Mahan
-- **Version:** 1.2.0
+- **Version:** 1.3.0
 - **Created:** 2026-10-08T09:39:41-05:00
-- **Last Updated:** 2026-11-03T13:35:51-06:00
+- **Last Updated:** 2026-11-16T16:15:58-06:00
 
 ## Revision History
 
@@ -95,3 +129,4 @@ This is the author's personal statement of determination to continue documenting
 | 1.0.0 | 2026-10-08T09:39:41-05:00 | Initial publication of the mission-focused repository README. | Kevin Mahan |
 | 1.1.0 | 2026-10-08T10:45:33-05:00 | Added concise links to the documentation libraries, evidence standards, validation tools, and governance policies. | Kevin Mahan |
 | 1.2.0 | 2026-11-03T13:35:51-06:00 | Linked the central research and investigative manual and updated the repository-development navigation note. | Kevin Mahan |
+| 1.3.0 | 2026-11-16T16:15:58-06:00 | Added project identity, scoped research overview, bibliography and manual navigation, evidence-status guidance, reproducible documentation checks, and contribution guidance. | Kevin Mahan |
