@@ -2,9 +2,9 @@
 Document Title: Phase 2A Scientific Bibliography
 Document ID: RSH-PHASE2A-001
 Author: GitHub Copilot
-Version: 1.2.0
+Version: 1.3.0
 Created: 2026-11-16T13:57:21-06:00
-Last Updated: 2026-11-16T14:23:36-06:00
+Last Updated: 2026-11-16T14:28:32-06:00
 ---
 
 # Phase 2A Scientific Bibliography
@@ -156,6 +156,20 @@ The [NIST index record](https://github.com/usnistgov/NIST-Tech-Pubs/blob/bd258f9
 
 Attempts to access the publisher, PubMed, Crossref, NIST, NIME, Zenodo, GPO PDF, acoustics publisher, and SWGDE sites failed because their hostnames could not be resolved in this environment. A separate browser attempt was blocked for PubMed and the NIST publication page. The conference bibliography, NIST index, and GPO catalog were accessible through their maintained GitHub repositories. These access failures do not establish that the source documents do not exist. Source-specific findings are not substituted from secondary summaries. Established mechanisms, hypotheses about application, and personal observations remain distinct; no source alone establishes any incident, perpetrator, deployment, or attribution.
 
+### Phase 2A.1 — Supplied-source access attempt
+
+**Identifier:** RSH-PHASE2A-001-APP-002
+
+**Timestamp:** 2026-11-16T14:28:32-06:00
+
+**Author:** GitHub Copilot
+
+**Description:** Attempted the seven supplied publisher, PubMed, NIST report/publication, and NIME URLs once each. No page or document content was retrieved; research stopped at the reported access failure as directed.
+
+All seven requests failed with `WebFetchBlockedUrlError: failed to lookup address information: No address associated with hostname`. The failure covered the Frey publisher abstract and PubMed record; the NIST IR 8387 official PDF and publication page; the NIST TN 1515 official PDF and publication page; and the NIME 2010 conference PDF. The failed requests provide no source text for citation verification, author-list comparison, experimental conditions, results, recommendations, or limitations.
+
+No source level is raised by this attempt. Frey's supplied 1962 citation and abstract remain **UNVERIFIED** here; the NIST IR 8387 and TN 1515 entries remain **METADATA_VERIFIED** from previously accessed indexes/catalog records only, not the named official pages or PDFs; V2 remains **ABSTRACT_REVIEWED** from the conference-maintained bibliography abstract, not the requested paper. In particular, the NIST IR 8387 publication-page author list cannot be compared with its PDF front matter, and the requested TN 1515 author attribution (Jeffrey A. Jargon and Donald C. DeGroot) was not independently checked against the report. No discrepancy can be determined from inaccessible documents. No new scientific finding or resolved lead is added; U1-U8 remain open. No incident-specific inference is made.
+
 ## Revision History
 
 | Version | Timestamp | Description | Author |
@@ -163,3 +177,4 @@ Attempts to access the publisher, PubMed, Crossref, NIST, NIME, Zenodo, GPO PDF,
 | 1.0.0 | 2026-11-16T13:57:21-06:00 | Initial limited bibliography with one reviewed technical source and explicitly unverified research leads. | GitHub Copilot |
 | 1.1.0 | 2026-11-16T14:10:33-06:00 | Added a conference-indexed ultrasonic audio reference with abstract-only verification and explicit limitations. | GitHub Copilot |
 | 1.2.0 | 2026-11-16T14:23:36-06:00 | Appended source-verification levels, attempted primary-source access, government catalog corroboration, and remaining research gaps. | GitHub Copilot |
+| 1.3.0 | 2026-11-16T14:28:32-06:00 | Appended the supplied-source access failures and preserved the existing verification levels and unresolved leads. | GitHub Copilot |
