@@ -1,0 +1,18 @@
+title: Gangstalking Countermeasures
+description: Research archive for surveillance research, auditory phenomena, signal analysis, and evidence preservation.
+theme: minima
+markdown: kramdown
+header_pages:
+  - index.md
+plugins:
+  - jekyll-relative-links
+relative_links:
+  enabled: true
+defaults:
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: default
+url: ""
+baseurl: ""

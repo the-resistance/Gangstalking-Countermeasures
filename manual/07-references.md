@@ -2,9 +2,9 @@
 Document Title: References and Research Leads
 Document ID: MAN-REFERENCES-001
 Author: Kevin Mahan
-Version: 1.1.0
+Version: 1.2.0
 Created: 2026-11-03T13:35:51-06:00
-Last Updated: 2026-11-16T13:57:21-06:00
+Last Updated: 2026-11-16T16:15:58-06:00
 ---
 
 # References and Research Leads
@@ -14,6 +14,10 @@ This index records the source state found in the repository review for this manu
 ## Phase 2A Scientific Bibliography
 
 The [Phase 2A Scientific Bibliography](../docs/research/PHASE-2A-SCIENTIFIC-BIBLIOGRAPHY.md) is a separately versioned source review. It records reviewed sources, outstanding leads, and access limitations. The sections below preserve the original manual-review baseline.
+
+## Current Research and Citation Status
+
+The bibliography's [current verification status](../docs/research/PHASE-2A-SCIENTIFIC-BIBLIOGRAPHY.md#current-verification-status) records five full-text reviews and distinguishes source review from independent experimental replication. The [Phase 2B citation URL audit](../docs/audits/PHASE-2B-CITATION-URL-AUDIT.md) records URL-level access and verification separately. The sections below are the preserved original manual-review baseline, not a current citation-status summary.
 
 ## Peer-Reviewed Research
 
@@ -64,3 +68,4 @@ Provide a source for each claimed link, distinguish primary from secondary sourc
 |---------|-----------|-------------|--------|
 | 1.0.0 | 2026-11-03T13:35:51-06:00 | Initial publication of the reference index and explicitly labeled research leads. | Kevin Mahan |
 | 1.1.0 | 2026-11-16T13:57:21-06:00 | Linked the separately versioned Phase 2A scientific bibliography while preserving the original review baseline. | Kevin Mahan |
+| 1.2.0 | 2026-11-16T16:15:58-06:00 | Linked the current source-verification status and Phase 2B URL audit, clarifying that earlier reference sections retain their historical checkpoint. | Kevin Mahan |

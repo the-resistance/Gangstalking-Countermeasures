@@ -2,12 +2,18 @@
 Document Title: Phase 2A Scientific Bibliography
 Document ID: RSH-PHASE2A-001
 Author: GitHub Copilot
-Version: 1.2.0
+Version: 1.3.0
 Created: 2026-11-16T13:57:21-06:00
-Last Updated: 2026-11-16T14:47:17-06:00
+Last Updated: 2026-11-16T16:15:58-06:00
 ---
 
 # Phase 2A Scientific Bibliography
+
+## Current Verification Status
+
+As of 2026-11-16, the following five source texts have been reviewed in full: NTIA ABC-MRT (S. Voran), Frey 1962, Ciglar NIME 2010, NIST TN 1515, and NIST IR 8387. `FULL_TEXT_REVIEWED` describes review of the cited source text; it does not mean that the reported experiment was independently replicated or that a capability was tested in a new experiment.
+
+This current summary supplements, and does not rewrite, the historical Phase 2A and Phase 2A.1 checkpoints below. Earlier verification levels and access failures describe those earlier checkpoints. For the present status of each citation URL, see the [Phase 2B citation URL audit](../audits/PHASE-2B-CITATION-URL-AUDIT.md).
 
 ## Scope and Methodology
 
@@ -276,3 +282,4 @@ The following two revision records were present in commits on this unmerged bran
 | 1.0.0 | 2026-11-16T13:57:21-06:00 | Initial limited bibliography with one reviewed technical source and explicitly unverified research leads. | GitHub Copilot |
 | 1.1.0 | 2026-11-16T14:10:33-06:00 | Added a conference-indexed ultrasonic audio reference with abstract-only verification and explicit limitations. | GitHub Copilot |
 | 1.2.0 | 2026-11-16T14:47:17-06:00 | Consolidated Phase 2A.1 source reviews, access limitations, and the formal version correction into one increment from 1.1.0. | GitHub Copilot |
+| 1.3.0 | 2026-11-16T16:15:58-06:00 | Added a current source-review status summary and linked the separate citation URL audit while preserving the Phase 2A and Phase 2A.1 checkpoint records. | GitHub Copilot |
