@@ -14,7 +14,7 @@ Research topics include surveillance research; RF auditory phenomena and the mic
 - [Citation URL audit](docs/audits/PHASE-2B-CITATION-URL-AUDIT.md)
 - [Research and Investigative Field Manual](MANUAL.md)
 - [RSH-001 — Voice-to-Skull research document](research/001-voice-to-skull-v2k.md)
-- [Documentation site source](docs/index.md) (GitHub Pages deployment has not been confirmed)
+- [Documentation site](index.md) (GitHub Pages deployment has not been confirmed)
 
 ## Research Scope and Evidence Status
 
@@ -120,7 +120,7 @@ This is the author's personal statement of determination to continue documenting
 - **Author:** Kevin Mahan
 - **Version:** 1.3.0
 - **Created:** 2026-10-08T09:39:41-05:00
-- **Last Updated:** 2026-11-16T16:15:58-06:00
+- **Last Updated:** 2026-11-16T16:28:42-06:00
 
 ## Revision History
 
@@ -129,4 +129,4 @@ This is the author's personal statement of determination to continue documenting
 | 1.0.0 | 2026-10-08T09:39:41-05:00 | Initial publication of the mission-focused repository README. | Kevin Mahan |
 | 1.1.0 | 2026-10-08T10:45:33-05:00 | Added concise links to the documentation libraries, evidence standards, validation tools, and governance policies. | Kevin Mahan |
 | 1.2.0 | 2026-11-03T13:35:51-06:00 | Linked the central research and investigative manual and updated the repository-development navigation note. | Kevin Mahan |
-| 1.3.0 | 2026-11-16T16:15:58-06:00 | Added project identity, scoped research overview, bibliography and manual navigation, evidence-status guidance, reproducible documentation checks, and contribution guidance. | Kevin Mahan |
+| 1.3.0 | 2026-11-16T16:28:42-06:00 | Added project identity, scoped research overview, bibliography and site navigation, evidence-status guidance, reproducible documentation checks, and contribution guidance. | Kevin Mahan |

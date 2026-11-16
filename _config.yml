@@ -4,10 +4,15 @@ theme: minima
 markdown: kramdown
 header_pages:
   - index.md
+plugins:
+  - jekyll-relative-links
+relative_links:
+  enabled: true
+defaults:
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: default
 url: ""
 baseurl: ""
-exclude:
-  - audits/
-  - architecture/
-  - evidence-model.md
-  - research/
