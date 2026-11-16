@@ -6,6 +6,10 @@ This file records completed repository documentation changes in reverse chronolo
 
 | Timestamp | Document | Previous Version | New Version | Change | Author |
 |-----------|----------|------------------|-------------|--------|--------|
+| 2026-11-16T15:56:43-06:00 | `CHANGELOG.md` | N/A | N/A | Clarified the 14:47 bibliography entry: 1.1.0 was the published main-branch baseline; the immediately preceding PR-branch version was 1.3.0, normalized to 1.2.0. | GitHub Copilot |
+| 2026-11-16T14:47:17-06:00 | `docs/research/PHASE-2A-SCIENTIFIC-BIBLIOGRAPHY.md` | 1.1.0 | 1.2.0 | Reviewed four attached primary PDFs, added page-cited findings and limitations, recorded metadata discrepancies and access boundaries, and consolidated the unmerged Phase 2A.1 working revisions into one formal increment. | GitHub Copilot |
+| 2026-11-16T14:28:32-06:00 | `docs/research/PHASE-2A-SCIENTIFIC-BIBLIOGRAPHY.md` | 1.2.0 | 1.3.0 | Recorded failed access to the supplied primary-source URLs and retained prior verification levels and open leads. | GitHub Copilot |
+| 2026-11-16T14:23:36-06:00 | `docs/research/PHASE-2A-SCIENTIFIC-BIBLIOGRAPHY.md` | 1.1.0 | 1.2.0 | Appended verification levels, attempted primary-source access, GPO catalog corroboration, and unresolved research gaps. | GitHub Copilot |
 | 2026-11-16T14:10:33-06:00 | `docs/research/PHASE-2A-SCIENTIFIC-BIBLIOGRAPHY.md` | 1.0.0 | 1.1.0 | Added a conference-indexed ultrasonic audio reference, limiting review to its indexed abstract. | GitHub Copilot |
 | 2026-11-16T13:57:21-06:00 | `docs/research/PHASE-2A-SCIENTIFIC-BIBLIOGRAPHY.md` | N/A | 1.0.0 | Added a limited scientific bibliography with one reviewed NTIA technical document, unverified leads, and source-access limitations. | GitHub Copilot |
 | 2026-11-16T13:57:21-06:00 | `manual/07-references.md` | 1.0.0 | 1.1.0 | Linked the separately versioned Phase 2A bibliography while preserving the original reference-review baseline. | GitHub Copilot |
