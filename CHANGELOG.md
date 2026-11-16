@@ -6,6 +6,8 @@ This file records completed repository documentation changes in reverse chronolo
 
 | Timestamp | Document | Previous Version | New Version | Change | Author |
 |-----------|----------|------------------|-------------|--------|--------|
+| 2026-11-16T13:57:21-06:00 | `docs/research/PHASE-2A-SCIENTIFIC-BIBLIOGRAPHY.md` | N/A | 1.0.0 | Added a limited scientific bibliography with one reviewed NTIA technical document, unverified leads, and source-access limitations. | GitHub Copilot |
+| 2026-11-16T13:57:21-06:00 | `manual/07-references.md` | 1.0.0 | 1.1.0 | Linked the separately versioned Phase 2A bibliography while preserving the original reference-review baseline. | GitHub Copilot |
 | 2026-11-16T13:35:58-06:00 | `docs/audits/PHASE-1-REPOSITORY-AUDIT.md` | N/A | 1.0.0 | Published the Phase 1 repository baseline audit covering documentation inventory, research coverage, evidence capabilities, architecture gaps, recommendations, and validation results. | GitHub Copilot |
 
 ## 2026-11-08

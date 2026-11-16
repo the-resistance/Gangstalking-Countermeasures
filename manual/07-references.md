@@ -2,14 +2,18 @@
 Document Title: References and Research Leads
 Document ID: MAN-REFERENCES-001
 Author: Kevin Mahan
-Version: 1.0.0
+Version: 1.1.0
 Created: 2026-11-03T13:35:51-06:00
-Last Updated: 2026-11-03T13:35:51-06:00
+Last Updated: 2026-11-16T13:57:21-06:00
 ---
 
 # References and Research Leads
 
 This index records the source state found in the repository review for this manual. A research lead is not a verified citation. No bibliographic details, document numbers, or source relationships are supplied where the existing records do not establish them. Add a specific external reference only after checking the source and its context.
+
+## Phase 2A Scientific Bibliography
+
+The [Phase 2A Scientific Bibliography](../docs/research/PHASE-2A-SCIENTIFIC-BIBLIOGRAPHY.md) is a separately versioned source review. It records reviewed sources, outstanding leads, and access limitations. The sections below preserve the original manual-review baseline.
 
 ## Peer-Reviewed Research
 
@@ -59,3 +63,4 @@ Provide a source for each claimed link, distinguish primary from secondary sourc
 | Version | Timestamp | Description | Author |
 |---------|-----------|-------------|--------|
 | 1.0.0 | 2026-11-03T13:35:51-06:00 | Initial publication of the reference index and explicitly labeled research leads. | Kevin Mahan |
+| 1.1.0 | 2026-11-16T13:57:21-06:00 | Linked the separately versioned Phase 2A scientific bibliography while preserving the original review baseline. | Kevin Mahan |
