@@ -2,9 +2,9 @@
 Document Title: Phase 2A Scientific Bibliography
 Document ID: RSH-PHASE2A-001
 Author: GitHub Copilot
-Version: 1.3.0
+Version: 1.2.0
 Created: 2026-11-16T13:57:21-06:00
-Last Updated: 2026-11-16T14:28:32-06:00
+Last Updated: 2026-11-16T14:47:17-06:00
 ---
 
 # Phase 2A Scientific Bibliography
@@ -170,11 +170,109 @@ All seven requests failed with `WebFetchBlockedUrlError: failed to lookup addres
 
 No source level is raised by this attempt. Frey's supplied 1962 citation and abstract remain **UNVERIFIED** here; the NIST IR 8387 and TN 1515 entries remain **METADATA_VERIFIED** from previously accessed indexes/catalog records only, not the named official pages or PDFs; V2 remains **ABSTRACT_REVIEWED** from the conference-maintained bibliography abstract, not the requested paper. In particular, the NIST IR 8387 publication-page author list cannot be compared with its PDF front matter, and the requested TN 1515 author attribution (Jeffrey A. Jargon and Donald C. DeGroot) was not independently checked against the report. No discrepancy can be determined from inaccessible documents. No new scientific finding or resolved lead is added; U1-U8 remain open. No incident-specific inference is made.
 
+### Phase 2A.1 — Version normalization correction
+
+**Identifier:** RSH-PHASE2A-001-APP-003
+
+**Timestamp:** 2026-11-16T14:47:17-06:00
+
+**Author:** GitHub Copilot
+
+**Description:** Corrected the formal bibliography version for the single, still-unmerged Phase 2A.1 increment, retaining the intervening branch records for traceability.
+
+- **Original working-branch versions:** The bibliography was successively marked 1.2.0 and 1.3.0 in commits on this PR branch, while `origin/main` remained at 1.1.0.
+- **Correction:** This PR's consolidated Phase 2A.1 bibliography is version 1.2.0, one significant-content increment from the published 1.1.0.
+- **Reason:** The earlier versions were unmerged intermediate work on this same increment, not separate releases from `main`. Keeping 1.3.0 as the PR's formal version fails the repository's one-increment comparison against the actual base. The former entries are retained below as a pre-merge working-branch trail; the Git commits and changelog entries are also preserved.
+- **Version increment:** 1.1.0 to 1.2.0 under VERSIONING V-001. The current formal revision and changelog entry record this correction.
+
+### Phase 2A.1 — Attached primary-source review
+
+**Identifier:** RSH-PHASE2A-001-APP-004
+
+**Timestamp:** 2026-11-16T14:47:17-06:00
+
+**Author:** GitHub Copilot
+
+**Description:** Reviewed the four supplied PDF documents. Findings below are limited to what those documents report. Reported experimental results are not independent replications, and none establishes an incident-specific application.
+
+#### U1 — Allan H. Frey, 1962
+
+- **Citation:** Allan H. Frey, “Human auditory system response to modulated electromagnetic energy,” *Journal of Applied Physiology* 17, no. 4 (1962): 689–692. DOI: `10.1152/jappl.1962.17.4.689`. The article's title, author, journal citation, and pagination appear on p. 689. [Publisher abstract](https://journals.physiology.org/doi/abs/10.1152/jappl.1962.17.4.689); [PubMed record](https://pubmed.ncbi.nlm.nih.gov/13895081/); [publisher full-text locator](https://journals.physiology.org/doi/10.1152/jappl.1962.17.4.689).
+- **Verification level:** FULL_TEXT_REVIEWED. The supplied four-page article was read (journal pp. 689–692). The abstract printed on p. 689 was also checked; direct access to the supplied web records was unavailable.
+- **Reported findings:** Frey reports that modulated RF exposure produced sound perceptions in normal-hearing and deaf human subjects, describes the perceptions as varying with carrier frequency and modulation, and reports a response several hundred feet from the antenna in the abstract (p. 689). The article reports subjective matching attempts and says a pulsed audio signal with high-frequency components produced the closest match (p. 690). Its threshold discussion reports that peak, rather than average, power density was the critical factor in the tested conditions (p. 691).
+- **Method and conditions:** The paper describes human-subject observations using pulse-modulated transmitters across carrier frequencies including 425, 1,310, 2,982, and 8,900 MHz, with varied pulse widths, repetition rates, and duty cycles (Table 1, p. 690). The abstract reports approximately 80 dB ambient acoustic noise and approximately 275 mW/cm² peak power density for perception at 425 and 1,310 MHz, with average power density as low as 400 μW/cm² (p. 689). Threshold observations used earplugs to reduce ambient acoustic noise; a sound-level meter and earplug attenuation are described on p. 690. A sound-matching procedure with a variable audio bandpass filter is described on pp. 690–691.
+- **Limitations:** The paper says its transmitter values are conservative and not precise because measurements were not made in ideal laboratory environments (p. 689). It does not report a sample size or a controlled, blinded protocol in this article; the authors refer readers to a separate paper for a longer series of studies and measurement instruments (p. 689). The proposed approximately 3 μW/cm² threshold in an anechoic room is explicitly a theoretical extrapolation from assumptions about noise attenuation, not a measured result (p. 692). The authors state that evidence for possible detector sites is inconclusive and interpretations are deliberately omitted pending additional data (p. 692).
+- **Classification:** DOCUMENTED SCIENCE for the bounded, author-reported human observations and threshold discussion. This is not independent replication, a demonstrated mechanism, or evidence of any particular exposure or event.
+- **Repository cross-reference:** RSH-001 sections 3.1 and 6; Phase 1 audit sections 5–7.
+
+#### U2 — Miha Ciglar, NIME 2010
+
+- **Citation:** Miha Ciglar, “An Ultrasound Based Instrument Generating Audible and Tactile Sound,” *Proceedings of the 2010 Conference on New Interfaces for Musical Expression (NIME 2010)*, Sydney, Australia, June 2010, pp. 19–22. ISSN `2220-4806`; DOI `10.5281/zenodo.1177745`. Title, author, conference, and pagination appear on pp. 19 and 22. [Original conference PDF](https://www.nime.org/proceedings/2010/nime2010_019.pdf).
+- **Verification level:** FULL_TEXT_REVIEWED. All four proceedings pages (pp. 19–22) of the supplied paper were reviewed.
+- **Reported method and findings:** The paper describes a prototype with 97 piezoelectric transducers on a spherical surface, resonant at 40 kHz, driven by an amplitude-modulated carrier and focused at a fixed point approximately 25 cm from the transducers (p. 19). It describes airborne nonlinear propagation as producing audible components alongside tactile feedback at the focal point (pp. 19–20). For hand-position sensing, it added three 50 kHz transmitter/receiver elements and analyzed reflected-signal amplitudes; Figure 2 reports a 1024-point FFT with 192 kHz sampling (p. 21). The authors report that the 50 kHz amplitudes varied with hand position and could be used as control parameters (p. 21).
+- **Experimental conditions and limitations:** Audio generation used an Edirol FA101 interface at 192 kHz and Pure Data; the 40 kHz array was driven through a 100 W amplifier, reported to operate at full power, with a 2.2 μF coupling capacitor (p. 21). The authors state that they lacked measuring equipment to determine the load impedance, that amplifier and transducer impedances were not matched, and that further measurements were needed to optimize power transfer (pp. 21–22). The hand-position experiments were limited to receiver-amplitude analysis and simple mappings to oscillator pitch; the paper says no particular synthesis engine was designed (p. 21, footnote). It supplies no calibrated sound-pressure, beam-range, exposure, intelligibility, or controlled-listener measurements. Its qualitative description is not an independent replication or evidence of use outside the musical prototype.
+- **Classification:** DOCUMENTED SCIENCE for the source-described prototype and qualitative observations, bounded by the reported apparatus and missing quantitative characterization. It does not establish a general-purpose capability or any incident-specific application.
+- **Repository cross-reference:** RSH-001 section 3.3; Phase 1 audit sections 5–7.
+
+#### U4 — Jeffrey A. Jargon and Donald C. DeGroot, NIST TN 1515
+
+- **Citation:** Jeffrey A. Jargon and Donald C. DeGroot, *Comparison of Passive Intermodulation Measurements for the U.S. Wireless Industry*, NIST Technical Note 1515, October 1999, 48 pp. DOI: `10.6028/NIST.TN.1515`. Both authors and the title appear on the report title page (PDF p. 3) and paper title page (PDF p. 7); the report abstract is on PDF p. 7. [Official report PDF](https://nvlpubs.nist.gov/nistpubs/Legacy/TN/nbstechnicalnote1515.pdf); [NIST publication record](https://www.nist.gov/publications/comparison-passive-intermodulation-measurements-u-s-wireless-industry).
+- **Verification level:** FULL_TEXT_REVIEWED. The supplied PDF's title and abstract, methodology, results, discussion and conclusions, and participant/form appendices were reviewed. The report identifies itself as 48 pages; the 52-page PDF also includes front matter and publication material.
+- **Method:** NIST organized a round-robin comparison using four two-port artifacts with DIN 7-16 connectors and deliberately varied nonlinearities: three diode-modified adapters and a diode-modified cable assembly (printed pp. 4–5). Ten companies contributed 19 data sets across AMPS, GSM, PCS, and DCS bands over about nine months (abstract, PDF p. 7; printed pp. 5–6). The protocol used two continuous-wave sources at +43 dBm (20 W) each, measured third-order intermodulation products in receive bands, and allowed forward and/or reflected configurations (printed pp. 4–5 and Appendix A, pp. 41–42). Appendix A asked participants to report environmental conditions, systems, loads, and uncertainty bounds where available (pp. 41–42).
+- **Reported findings:** The report says most participant measurements were within two standard deviations of ensemble means, while some showed substantial discrepancies (printed pp. 9–10). Results varied by artifact, band, and forward/reflected configuration; the electrically long blue artifact showed configuration and frequency dependence, and the white artifact was less repeatable than the others (pp. 6–9). NIST's own artifacts and systems remained stable within 2.9 dB standard deviation for up to five months (p. 9).
+- **Limitations:** This was a bounded interlaboratory comparison of four designed artifacts and selected commercial communications bands, not an unrestricted survey of passive devices or an incident investigation. The DCS results had only two participants and were not statistically summarized (p. 8). One GSM participant's values were over 30 dB below the others and were excluded from figures and mean/standard-deviation calculations (p. 7). The report anonymizes companies, and its reported agreement/disagreement is specific to the instruments, artifacts, bands, and protocol. It does not establish that passive intermodulation occurred in any other device or event.
+- **Metadata discrepancy:** The [previously consulted NIST-Tech-Pubs RIS index](https://github.com/usnistgov/NIST-Tech-Pubs/blob/bd258f9a2e02bdb8787740eac17f6779777ea66d/bib/NIST.TN.1515.ris) lists Jargon but not DeGroot; the original report title page lists **both Jeffrey A. Jargon and Donald C. DeGroot** (PDF pp. 3 and 7). The supplied NIST publication page could not be accessed, so its author list could not be compared directly with the PDF.
+- **Classification:** DOCUMENTED SCIENCE for this source's reported measurement intercomparison, limited to its stated sample and protocol.
+- **Repository cross-reference:** RSH-001 section 3.2; Phase 1 audit sections 5–7.
+
+#### U7 — Guttman, White, and Walraven, NIST IR 8387
+
+- **Citation:** Barbara Guttman, Douglas R. White, and Tracy Walraven, *Digital Evidence Preservation: Considerations for Evidence Handlers*, NIST Interagency Report 8387, September 2022. DOI: `10.6028/NIST.IR.8387`. The complete three-author list appears on the report cover and title page (PDF pp. 1–2) and in NIST's recommended citation (PDF p. 3). [Official report PDF](https://nvlpubs.nist.gov/nistpubs/ir/2022/NIST.IR.8387.pdf); [NIST publication record](https://www.nist.gov/publications/digital-evidence-preservation-considerations-evidence-handlers).
+- **Verification level:** FULL_TEXT_REVIEWED. All pages of the supplied 22-page PDF, including front matter, abstract, body, and references, were reviewed.
+- **Reported guidance:** The report addresses preservation of physical media, digital images/files, other digital objects, and law-enforcement-generated digital evidence; it identifies evidence-management professionals as its primary audience and limits acquisition discussion to areas overlapping preservation (abstract, PDF p. 4; printed p. 1). For digital files, it recommends documenting source and transfer/creation, storing hashes or signatures separately in a secure location, maintaining backups and access controls/logging, and considering long-term storage and file-format preservation (printed pp. 7–11). It describes physical-media, transfer, storage, and radio-isolation considerations (printed pp. 3–5).
+- **Limitations:** This is preservation guidance, not an experiment, audio-forensic standard, or validation of a specific collection process. Acquisition is outside scope except where it overlaps preservation (abstract and printed p. 1). Recommendations are directed to evidence-management settings; the report does not determine the authenticity, truth, origin, or cause of a file's contents.
+- **Author comparison:** The PDF front matter names Guttman, White, and Walraven (PDF pp. 1–3), matching the author list in the [previously accessed NIST-Tech-Pubs RIS index](https://github.com/usnistgov/NIST-Tech-Pubs/blob/bd258f9a2e02bdb8787740eac17f6779777ea66d/bib/NIST.IR.8387.ris). The official publication page supplied for comparison could not be accessed in this environment, so direct page-to-PDF comparison and any webpage discrepancy remain unverified. No discrepancy appears between the PDF and the accessible index.
+- **Classification:** DOCUMENTED TECHNICAL GUIDANCE; not experimental evidence.
+- **Repository cross-reference:** RSH-001 sections 7.4–7.5; `manual/06-evidence-preservation.md`; Phase 1 audit sections 6–7.
+
+#### Current source levels and remaining leads
+
+| Source or lead | Current level/status |
+|---|---|
+| V1 — Voran, NTIA ABC-MRT technical document | FULL_TEXT_REVIEWED, as documented in the Phase 2A entry. |
+| V2 — Ciglar, NIME 2010 | FULL_TEXT_REVIEWED; the earlier Phase 2A access was limited to the conference abstract. |
+| U1 — Frey | 1962 article FULL_TEXT_REVIEWED; earlier 1961 publication and its findings remain UNVERIFIED. The broader U1 lead is narrowed, not fully resolved. |
+| U2 — Parametric/directional audio | Ciglar paper FULL_TEXT_REVIEWED; further primary literature and broader performance limits remain open. |
+| U3 — Nonlinear junction detection and unintentional RF demodulation | UNVERIFIED; TN 1515 concerns a bounded passive-intermodulation comparison and does not resolve this lead. |
+| U4 — Passive intermodulation | NIST TN 1515 FULL_TEXT_REVIEWED; metadata author discrepancy recorded above. Broader device/application questions remain open. |
+| U5 — Speech perception and auditory pareidolia | UNVERIFIED; no primary source reviewed in these attachments. |
+| U6 — Blinded listening and signal detection | UNVERIFIED; no primary source reviewed in these attachments. |
+| U7 — Digital evidence preservation | NIST IR 8387 FULL_TEXT_REVIEWED. PDF author list verified; direct comparison with the official publication webpage remains blocked. It is guidance, not a standard. |
+| U8 — Audio forensic standards and methods | UNVERIFIED; these attachments do not contain a reviewed audio-forensic standard. |
+
+#### Access and inference boundary
+
+The four supplied PDFs were available locally and reviewed directly. Direct requests to the Frey publisher/PubMed pages and the two NIST publication pages failed with DNS-resolution errors; therefore no claim is made about the inaccessible web-page author lists or page abstracts. The PDF contents, not those failed requests, support the full-text classifications above. No source establishes an incident, exposure, device, perpetrator, deployment, intent, or attribution.
+
+| Evidence classification update | Bounded application |
+|---|---|
+| DOCUMENTED SCIENCE | Frey's reported human observations, Ciglar's bounded prototype account, and the TN 1515 interlaboratory measurements, each with the conditions and limitations above. |
+| DOCUMENTED TECHNICAL GUIDANCE | NIST IR 8387's evidence-preservation considerations; this is not experimental evidence or a forensic standard. |
+| EXPERIMENTALLY DEMONSTRATED CAPABILITY | No generalized or independently replicated capability is established by these reviews. |
+
+## Pre-merge Working-Branch Revision Trail
+
+The following two revision records were present in commits on this unmerged branch. They are retained as an audit trail, but are not separate releases from `main`; APP-003 documents their consolidation into the formal 1.2.0 increment.
+
+| Version | Timestamp | Description | Author |
+|---------|-----------|-------------|--------|
+| 1.2.0 | 2026-11-16T14:23:36-06:00 | Appended source-verification levels, attempted primary-source access, government catalog corroboration, and remaining research gaps. | GitHub Copilot |
+| 1.3.0 | 2026-11-16T14:28:32-06:00 | Appended the supplied-source access failures and preserved the existing verification levels and unresolved leads. | GitHub Copilot |
+
 ## Revision History
 
 | Version | Timestamp | Description | Author |
 |---------|-----------|-------------|--------|
 | 1.0.0 | 2026-11-16T13:57:21-06:00 | Initial limited bibliography with one reviewed technical source and explicitly unverified research leads. | GitHub Copilot |
 | 1.1.0 | 2026-11-16T14:10:33-06:00 | Added a conference-indexed ultrasonic audio reference with abstract-only verification and explicit limitations. | GitHub Copilot |
-| 1.2.0 | 2026-11-16T14:23:36-06:00 | Appended source-verification levels, attempted primary-source access, government catalog corroboration, and remaining research gaps. | GitHub Copilot |
-| 1.3.0 | 2026-11-16T14:28:32-06:00 | Appended the supplied-source access failures and preserved the existing verification levels and unresolved leads. | GitHub Copilot |
+| 1.2.0 | 2026-11-16T14:47:17-06:00 | Consolidated Phase 2A.1 source reviews, access limitations, and the formal version correction into one increment from 1.1.0. | GitHub Copilot |
