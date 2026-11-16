@@ -14,5 +14,5 @@ defaults:
       type: pages
     values:
       layout: default
-url: ""
-baseurl: ""
+url: "https://the-resistance.github.io"
+baseurl: "/Gangstalking-Countermeasures"
