@@ -8,6 +8,22 @@ This repository is a research archive and field manual for careful, evidence-foc
 
 Research topics include surveillance research; RF auditory phenomena and the microwave auditory effect; ultrasonic audio and directional audio; electromagnetic interference; audio forensics; digital evidence preservation; and signal analysis. A published physical effect or technical capability does not establish exposure, targeting, surveillance, or attribution in a specific incident.
 
+## Author’s Statement and Research Abstract
+
+**Kevin Mahan — Las Vegas, Nevada**
+
+This research initiative examines documented and hypothesized technological capabilities involving radio-frequency auditory phenomena, directional acoustics, electromagnetic systems, and surveillance technologies, including questions about their potential unauthorized use.
+
+The research extends beyond technical feasibility to potential legal, ethical, psychological, social, and economic consequences of misuse. Hypothetical harms include impersonation, false attribution of communications, invasion of privacy, emotional distress, reputational injury, financial loss, mistrust, and deterioration of friendships, family relationships, and professional associations.
+
+Establishing technological capability, actual deployment, responsible-party attribution, causation, and damages requires separate evidentiary support. Suspected misconduct is not an established finding. Alternative explanations must be considered. The initiative examines civil liability, regulatory oversight, informed consent, human-subject protections, institutional accountability, and lawful redress.
+
+My ethical and spiritual conviction is that all human beings are God's creations and fundamentally equal. No individual, institution, government, or technology operator possesses divine authority over another person. Technological superiority does not confer moral superiority. The ability to observe, influence, or exercise power does not establish the ethical or legal right to do so.
+
+I believe concentrated power without accountability can encourage arrogance, moral overreach, and erosion of human boundaries, including when power is transferred across generations. Knowledge should be shared to support independent thought, scientific examination, public awareness, and responsible innovation. The purpose is education, transparency, human dignity, and lawful, nonviolent accountability—not retaliation.
+
+**Knowledge should serve humanity, never become an instrument of domination.**
+
 ## Start Here
 
 - [Scientific bibliography and current source-verification status](docs/research/PHASE-2A-SCIENTIFIC-BIBLIOGRAPHY.md#current-verification-status)
@@ -118,9 +134,9 @@ This is the author's personal statement of determination to continue documenting
 - **Document Title:** Observation & Countermeasure Field Manual
 - **Document ID:** README-001
 - **Author:** Kevin Mahan
-- **Version:** 1.3.0
+- **Version:** 1.4.0
 - **Created:** 2026-10-08T09:39:41-05:00
-- **Last Updated:** 2026-11-16T16:28:42-06:00
+- **Last Updated:** 2026-11-26T03:29:28Z
 
 ## Revision History
 
@@ -130,3 +146,4 @@ This is the author's personal statement of determination to continue documenting
 | 1.1.0 | 2026-10-08T10:45:33-05:00 | Added concise links to the documentation libraries, evidence standards, validation tools, and governance policies. | Kevin Mahan |
 | 1.2.0 | 2026-11-03T13:35:51-06:00 | Linked the central research and investigative manual and updated the repository-development navigation note. | Kevin Mahan |
 | 1.3.0 | 2026-11-16T16:28:42-06:00 | Added project identity, scoped research overview, bibliography and site navigation, evidence-status guidance, reproducible documentation checks, and contribution guidance. | Kevin Mahan |
+| 1.4.0 | 2026-11-26T03:29:28Z | Added author’s statement and research abstract. | Kevin Mahan |
