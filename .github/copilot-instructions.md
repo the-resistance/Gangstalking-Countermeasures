@@ -2,9 +2,9 @@
 Document Title: Copilot Repository Instructions
 Document ID: GOV-COPILOT-001
 Author: Kevin Mahan
-Version: 1.0.0
+Version: 1.1.0
 Created: 2026-10-08T10:12:48-05:00
-Last Updated: 2026-10-08T10:12:48-05:00
+Last Updated: 2026-11-26T00:23:25-06:00
 ---
 
 # Copilot Repository Instructions
@@ -76,8 +76,21 @@ If historical observations, evidence records, or scenario content are removed un
 
 The README describes the repository's mission and general purpose; keep operational rules in the governance documents. Do not create investigative subjects or scenarios, fabricate findings, or expand repository scope without explicit authorization. Preserve established project identifiers and author attribution as specified in [Anti-Drift](../governance/ANTI_DRIFT.md).
 
+## Execution diagnostics and permission handling
+
+At the beginning of every phase, create or append to `governance/COPILOT_EXECUTION_LOG.md` using the repository's versioning rules. Record the session identifier, branch, baseline revision, task counters, and available execution and publication capabilities. Preserve prior entries.
+
+Before each substantive operation record its purpose and command or tool name; immediately afterward record the actual timestamp, result, exit status, stdout and stderr where available, and exact permission-denial text. Redact credentials and sensitive data. Distinguish tool authorization denials from process failures, validation failures and network errors. Never invent missing diagnostics.
+
+Use the platform's supported agent branch and pull request publication workflow. Do not require direct pushes to a protected or pre-existing branch when the platform manages publication. Run validators independently, without pipelines that obscure exit status. Do not change Git identity or security settings unnecessarily. Respect explicit permission denials; do not retry denied operations or circumvent controls. Continue independent authorized tasks where feasible.
+
+Preserve partial work and publish diagnostic checkpoints through supported mechanisms when available. If repository logging or publication is denied, immediately provide the relevant diagnostic record in the session response, including the exact failed operation, original error if available, last successful checkpoint, affected files and required next action. Explicitly mark unavailable details. Never return only a blocked status when the log cannot be retrieved remotely.
+
+Declare phase completion only after required work and validation are confirmed and publication is verified through the supported workflow. Otherwise report the actual partial or blocked status. Do not restart completed work automatically.
+
 ## Revision History
 
 | Version | Timestamp | Description | Author |
 |---------|-----------|-------------|--------|
 | 1.0.0 | 2026-10-08T10:12:48-05:00 | Initial publication of repository-wide Copilot instructions. | Kevin Mahan |
+| 1.1.0 | 2026-11-26T00:23:25-06:00 | Added phase diagnostics, permission handling, managed publication and failure-reporting fallback. | Kevin Mahan |
