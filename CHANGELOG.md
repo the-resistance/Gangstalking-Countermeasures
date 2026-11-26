@@ -2,6 +2,12 @@
 
 This file records completed repository documentation changes in reverse chronological order. See the [Versioning Policy](governance/VERSIONING.md) for entry requirements.
 
+## 2026-11-25
+
+| Timestamp | Document | Previous Version | New Version | Change | Author |
+|-----------|----------|------------------|-------------|--------|--------|
+| 2026-11-25T21:29:28-06:00 | `README.md` | 1.3.0 | 1.4.0 | Added top-level research and ethics abstract, including potential harms and evidentiary limitations. | Kevin Mahan |
+
 ## 2026-11-16
 
 | Timestamp | Document | Previous Version | New Version | Change | Author |
