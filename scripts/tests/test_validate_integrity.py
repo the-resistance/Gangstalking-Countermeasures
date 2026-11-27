@@ -2,12 +2,18 @@
 
 from __future__ import annotations
 
+import importlib.util
 import subprocess
+import sys
 import tempfile
 import unittest
 from pathlib import Path
 
 SCRIPT = Path(__file__).resolve().parents[1] / "validate_integrity.py"
+_SPEC = importlib.util.spec_from_file_location("validate_integrity", SCRIPT)
+vi = importlib.util.module_from_spec(_SPEC)
+sys.modules[_SPEC.name] = vi
+_SPEC.loader.exec_module(vi)
 CREATED = "2026-10-08T09:00:00-05:00"
 TS_BASE = "2026-11-01T09:00:00-06:00"
 TS_NEW = "2026-11-27T10:00:00-06:00"
@@ -243,6 +249,154 @@ class HistoricalPreservationTests(IntegrityTestCase):
 
     def test_appended_revision_row_without_other_changes_passes(self):
         self.assertPasses(document(rows=BASE_ROWS + [row("1.1.0", TS_NEW, "Added note.")], version="1.1.0"))
+
+
+class CorrectionAssociationTests(IntegrityTestCase):
+    """AUD-005: a correction must resolve to the referenced historical finding."""
+
+    def superseded(self, text):
+        return f"{text} This finding is superseded.\n"
+
+    def test_aud005_wrong_statement_with_correct_finding_id_fails(self):
+        self.assertFails(self.corrected(original="Beeping stops at night."), "INTEGRITY-010", fragment="does not match")
+
+    def test_aud005_valid_finding_specific_correction_passes(self):
+        self.assertPasses(self.corrected())
+        findings = "FND-001: Beeping is periodic.\n\nFND-002: Beeping stops at night. Superseded.\n"
+        current = document(
+            findings=findings,
+            corrections=record(cid="COR-002", reference="FND-002", original="Beeping stops at night."),
+            rows=BASE_ROWS + [row("1.0.1", TS_NEW, "Corrected FND-002.")],
+        )
+        self.assertPasses(current)
+
+    def test_aud005_ambiguous_historical_reference_fails(self):
+        base = document(findings="Beeping is periodic.\n\nBeeping is periodic.\n")
+        current = document(
+            findings="Beeping is periodic. Superseded.\n\nBeeping is periodic.\n",
+            corrections=record(reference="Findings section"),
+        )
+        self.assertFails(current, "INTEGRITY-010", base, fragment="ambiguous")
+
+    def test_aud005_duplicate_historical_finding_ids_fail(self):
+        base = document(findings="FND-001: Beeping is periodic.\n\nFND-001: Beeping stops at night.\n")
+        current = document(
+            findings="FND-001: Beeping is periodic. Superseded.\n\nFND-001: Beeping stops at night.\n",
+            corrections=record(),
+        )
+        self.assertFails(current, "INTEGRITY-010", base, fragment="duplicate")
+
+    def test_aud005_conflicting_references_fail(self):
+        self.assertFails(self.corrected(reference="FND-001, FND-002"), "INTEGRITY-010", fragment="conflicting")
+
+    def test_aud005_identifier_in_original_statement_grants_no_authority(self):
+        current = document(
+            findings=SUPERSEDED_FINDINGS,
+            corrections=record(reference=None, original="FND-001: Beeping is periodic."),
+        )
+        self.assertFails(current, "INTEGRITY-010")
+
+    def test_aud005_correction_record_identifier_is_not_a_target(self):
+        self.assertFails(self.corrected(cid="FND-001", reference="FND-002"), "INTEGRITY-010")
+
+    def test_aud005_reference_to_unknown_historical_finding_fails(self):
+        current = document(
+            findings=SUPERSEDED_FINDINGS.replace("FND-001", "FND-009"),
+            corrections=record(reference="FND-009", original="Beeping is periodic."),
+        )
+        self.assertFails(current, "INTEGRITY-010", fragment="not found")
+
+    def test_aud005_identifier_free_finding_moved_to_other_section_fails(self):
+        base = document(findings="Beeping is periodic.\n")
+        current = document(findings="No findings recorded.\n", appendment_extra="\n## Notes\n\nBeeping is periodic. Superseded.\n")
+        current += "\n## Correction Records\n\n" + record(reference="Notes section")
+        self.assertFails(current, "INTEGRITY-010", base, fragment="section")
+
+    def test_aud005_unavailable_baseline_is_not_verified_traceability(self):
+        fields = {"original": "Beeping is periodic."}
+        self.assertFalse(vi.record_traceable(vi.CorrectionRecord(1, fields, "COR-001"), None))
+
+    def test_aud006_correction_timestamp_with_prose_fails_validation(self):
+        self.assertFails(self.corrected(timestamp=f"recorded {TS_NEW} (approximately)"), "INTEGRITY-010", fragment="timestamp")
+
+
+class StrictTimestampTests(unittest.TestCase):
+    """AUD-006: the whole field must be exactly one offset-aware timestamp."""
+
+    def test_aud006_leading_prose_is_rejected(self):
+        self.assertIsNone(vi.offset_timestamp("on 2026-11-27T10:00:00-06:00"))
+
+    def test_aud006_trailing_prose_is_rejected(self):
+        self.assertIsNone(vi.offset_timestamp("2026-11-27T10:00:00-06:00 approx."))
+
+    def test_aud006_multiple_timestamps_are_rejected(self):
+        self.assertIsNone(vi.offset_timestamp("2026-11-27T10:00:00-06:00 2026-11-28T10:00:00-06:00"))
+
+    def test_aud006_valid_utc_timestamp_is_accepted(self):
+        parsed = vi.offset_timestamp("2026-11-27T16:00:00Z")
+        self.assertEqual(parsed.utcoffset().total_seconds(), 0)
+
+    def test_aud006_fractional_seconds_and_offset_are_accepted(self):
+        parsed = vi.offset_timestamp(" `2026-11-27T10:00:00.123456-06:00` ")
+        self.assertEqual(parsed.microsecond, 123456)
+        self.assertEqual(parsed.utcoffset().total_seconds(), -6 * 3600)
+
+    def test_aud006_malformed_wrappers_are_rejected(self):
+        for value in ("`2026-11-27T10:00:00Z", "2026-11-27T10:00:00Z`", "``2026-11-27T10:00:00Z`", "```2026-11-27T10:00:00Z```", "`` `2026-11-27T10:00:00Z` ``", "'2026-11-27T10:00:00Z'"):
+            with self.subTest(value=value):
+                self.assertIsNone(vi.offset_timestamp(value))
+
+    def test_aud006_naive_timestamp_is_rejected(self):
+        self.assertIsNone(vi.offset_timestamp("2026-11-27T10:00:00"))
+
+    def test_aud006_impossible_dates_and_times_are_rejected(self):
+        for value in ("2026-02-30T10:00:00Z", "2026-13-01T10:00:00Z", "2026-11-27T24:00:00Z", "2026-11-27T10:60:00Z", "2026-11-27T10:00:60Z"):
+            with self.subTest(value=value):
+                self.assertIsNone(vi.offset_timestamp(value))
+
+    def test_aud006_invalid_offset_components_are_rejected(self):
+        for value in ("2026-11-27T10:00:00+24:00", "2026-11-27T10:00:00-06:60", "2026-11-27T10:00:00+99:99"):
+            with self.subTest(value=value):
+                self.assertIsNone(vi.offset_timestamp(value))
+
+
+class AdministrativeClassificationTests(IntegrityTestCase):
+    """AUD-007: only unambiguous administrative revision rows are exempt."""
+
+    def admin(self, description, timestamp=TS_NEW, extra_rows=()):
+        rows = BASE_ROWS + [row("1.1.0", timestamp, description)] + list(extra_rows)
+        return document(rows=rows, version="1.1.0")
+
+    def test_aud007_valid_administrative_revision_passes(self):
+        self.assertPasses(self.admin("Superseded the earlier table formatting."))
+        self.assertPasses(self.admin("Formatting guidance was superseded; historical content unchanged."))
+
+    def test_aud007_substantive_change_disguised_as_administrative_fails(self):
+        self.assertFails(self.admin("Formatting update superseded the earlier beep schedule."), "INTEGRITY-010")
+
+    def test_aud007_every_supersession_occurrence_is_evaluated(self):
+        description = "Superseded the earlier table formatting; superseded the earlier beep schedule."
+        self.assertFails(self.admin(description), "INTEGRITY-010")
+
+    def test_aud007_administrative_wording_mixed_with_finding_change_fails(self):
+        self.assertFails(self.admin("Superseded the earlier table formatting; corrected finding FND-001."), "INTEGRITY-010")
+
+    def test_aud007_invalid_revision_metadata_is_not_exempt(self):
+        self.assertFails(self.admin("Superseded the earlier table formatting.", timestamp="2026-11-27T10:00:00"), "INTEGRITY-010")
+        self.assertFails(self.admin("Superseded the earlier table formatting.", timestamp="not a timestamp"), "INTEGRITY-010")
+
+    def test_aud007_duplicate_version_row_is_not_exempt(self):
+        duplicate = row("1.1.0", TS_NEW, "Superseded the earlier table formatting.")
+        self.assertFails(self.admin("Superseded the earlier table formatting.", extra_rows=[duplicate]), "INTEGRITY-010")
+
+    def test_aud007_ambiguous_administrative_classification_fails(self):
+        for description in ("Superseded earlier text.", "Superseded the earlier version.", "Superseded."):
+            with self.subTest(description=description):
+                self.assertFails(self.admin(description), "INTEGRITY-010")
+
+    def test_aud007_malformed_row_is_not_exempt(self):
+        joined = row("1.1.0", TS_NEW, "Superseded the earlier table formatting.") + row("1.2.0", TS_NEW, "Second.")
+        self.assertFails(document(rows=BASE_ROWS + [joined], version="1.2.0"), "INTEGRITY-010")
 
 
 if __name__ == "__main__":
