@@ -6,8 +6,23 @@ This file records completed repository documentation changes in reverse chronolo
 
 | Timestamp | Document | Previous Version | New Version | Change | Author |
 |-----------|----------|------------------|-------------|--------|--------|
+| 2026-11-26T23:00:11-06:00 | `scripts/README.md` | 1.0.1 | 1.1.0 | Documented cumulative revision-chain validation for VERSION-007 and the validator regression tests. | GitHub Copilot |
+| 2026-11-26T23:00:11-06:00 | `scripts/validate_versions.py` | N/A | N/A | Corrected VERSION-007 to accept a continuous, documented cumulative revision chain from the baseline version while still rejecting undocumented jumps, missing intermediates, invalid transitions, regressions, and altered baseline history. | GitHub Copilot |
+| 2026-11-26T23:00:11-06:00 | `scripts/tests/test_validate_versions.py` | N/A | N/A | Added regression tests for valid cumulative increments and invalid version transitions. | GitHub Copilot |
+| 2026-11-26T23:00:11-06:00 | `.github/workflows/documentation-validation.yml` | N/A | N/A | Added a step that runs the validator regression tests; no existing validation step was changed or bypassed. | GitHub Copilot |
+| 2026-11-26T22:37:23-06:00 | `docs/research/REGULATORY-OVERSIGHT-AND-REDRESS.md` | 1.0.0 | 1.1.0 | Corrected ownership metadata to Kevin Mahan with AI-assistance disclosure; reclassified unverified legal statements; distinguished 45 CFR Part 46 from Subpart A; recorded failed access to four primary sources (all remain unverified) and outstanding research requirements. | Kevin Mahan |
+| 2026-11-26T22:34:15-06:00 | `README.md` | 1.4.0 | 1.5.0 | Added a Start Here link to the Regulatory Oversight and Redress document. | GitHub Copilot |
+| 2026-11-26T22:34:15-06:00 | `MANUAL.md` | 1.1.0 | 1.2.0 | Added a Supporting Records link to the Regulatory Oversight and Redress document. | GitHub Copilot |
+| 2026-11-26T22:33:31-06:00 | `docs/research/REGULATORY-OVERSIGHT-AND-REDRESS.md` | N/A | 1.0.0 | Created a governance-oriented document formalizing the README ethics and accountability abstract, separating legal requirements, ethical principles, and proposed safeguards; named legal and ethics instruments are marked unverified and no findings are made. | GitHub Copilot |
 | 2026-11-26T22:19:35-06:00 | `.github/copilot-instructions.md` | 1.2.0 | 1.3.0 | Required atomic execution, direct diagnostic capture and explicit denial-scope handling. | Kevin Mahan |
-| 2026-11-26T20:18:48-06:00 | `.github/copilot-instructions.md` | 1.0.0 | 1.2.0 | Consolidated execution authority, temporary private diagnostics and single-block failure reporting. | Kevin Mahan |
+| 2026-11-26T20:18:48-06:00 | `.github/copilot-instructions.md` | 1.1.0 | 1.2.0 | Consolidated execution authority, temporary private diagnostics and single-block failure reporting. | Kevin Mahan |
+| 2026-11-26T00:23:25-06:00 | `.github/copilot-instructions.md` | 1.0.0 | 1.1.0 | Added phase diagnostics, permission handling, managed publication and failure-reporting fallback. | Kevin Mahan |
+
+## 2026-11-25
+
+| Timestamp | Document | Previous Version | New Version | Change | Author |
+|-----------|----------|------------------|-------------|--------|--------|
+| 2026-11-25T21:29:28-06:00 | `README.md` | 1.3.0 | 1.4.0 | Added top-level research and ethics abstract, including potential harms and evidentiary limitations. | Kevin Mahan |
 
 ## 2026-11-16
 

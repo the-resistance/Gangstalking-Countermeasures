@@ -64,6 +64,9 @@ jobs:
             echo "sha=" >> "$GITHUB_OUTPUT"
           fi
 
+      - name: Run validator regression tests
+        run: python scripts/tests/test_validate_versions.py
+
       - name: Validate document structure and references
         run: python scripts/validate_documentation.py
 

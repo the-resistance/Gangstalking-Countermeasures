@@ -102,6 +102,53 @@ def is_valid_increment(old: str, new: str) -> bool:
     )
 
 
+def validate_version_transition(
+    old_version: str,
+    old_updated: str,
+    old_rows: list[tuple[str, str, str, str]],
+    new_version: str,
+    rows: list[tuple[str, str, str, str]],
+) -> list[str]:
+    """Return problems with a baseline-to-current version change.
+
+    A single valid increment is accepted. A larger change is accepted only when the
+    current revision history contains a continuous chain of valid increments that
+    starts at the baseline version, ends at the current version, preserves the
+    baseline history, and was recorded after the baseline's last update.
+    """
+    old = version_tuple(old_version)
+    new = version_tuple(new_version)
+    if old is None or new is None:
+        return [f"substantive change requires one valid version increment from {old_version}; found {new_version}."]
+    if new <= old:
+        return [f"version regression or missing increment from {old_version} to {new_version}."]
+    if is_valid_increment(old_version, new_version):
+        return []
+
+    positions = [index for index, row in enumerate(rows) if row[0] == old_version]
+    if not positions:
+        return [
+            f"version change from {old_version} to {new_version} requires a documented revision chain, "
+            f"but {old_version} is absent from the revision history."
+        ]
+    problems: list[str] = []
+    if [tuple(row) for row in old_rows] != [tuple(row) for row in rows[: len(old_rows)]]:
+        problems.append("baseline revision history entries were altered, reordered, or removed.")
+    chain = rows[positions[-1] + 1 :]
+    if not chain or chain[-1][0] != new_version:
+        problems.append(f"revision history does not end at version {new_version} after {old_version}.")
+    baseline_time = iso_timestamp(old_updated)
+    previous = old_version
+    for version, timestamp, _description, _author in chain:
+        if not is_valid_increment(previous, version):
+            problems.append(f"undocumented or invalid version transition {previous} -> {version} in the revision history.")
+        recorded = iso_timestamp(timestamp)
+        if baseline_time and recorded and recorded <= baseline_time:
+            problems.append(f"revision {version} is not later than the baseline's Last Updated timestamp.")
+        previous = version
+    return problems
+
+
 def normalize_for_content_comparison(text: str) -> str:
     lines = text.splitlines()
     if lines and lines[0].strip() == "---":
@@ -321,8 +368,14 @@ def main() -> int:
         substantive = normalize_for_content_comparison(previous_text) != normalize_for_content_comparison(text)
         if substantive:
             old_version = previous.get("Version", "")
-            if not is_valid_increment(old_version, version):
-                errors.append((relative, f"VERSION-007: substantive change requires one valid version increment from {old_version}; found {version}."))
+            for problem in validate_version_transition(
+                old_version,
+                previous.get("Last Updated", ""),
+                revision_rows(document_revision_history(previous_text)),
+                version,
+                rows,
+            ):
+                errors.append((relative, f"VERSION-007: {problem}"))
             if previous.get("Last Updated") == metadata.get("Last Updated"):
                 errors.append((relative, "VERSION-008: substantive change did not update Last Updated."))
             if not any(
