@@ -2,9 +2,9 @@
 Document Title: Copilot Repository Instructions
 Document ID: GOV-COPILOT-001
 Author: Kevin Mahan
-Version: 1.2.0
+Version: 1.3.0
 Created: 2026-10-08T10:12:48-05:00
-Last Updated: 2026-11-26T20:18:48-06:00
+Last Updated: 2026-11-26T22:19:35-06:00
 ---
 
 # Copilot Repository Instructions
@@ -86,6 +86,10 @@ Keep verbose diagnostics in a temporary location outside the public repository, 
 
 Record each substantive operation before execution and its result immediately afterward: actual timestamp, operation, status, exit code, stdout, stderr, exact denial text when available, affected files and checkpoint. Redact secrets and personal data. Distinguish authorization denial, process failure, validation failure, Git conflict and infrastructure failure. Mark unavailable details explicitly; never invent them.
 
+Use one independently authorized operation per tool invocation. Do not combine unrelated filesystem tests, validators, authentication checks, or publication commands in one execution request. Capture tool output directly; do not create diagnostic files or redirect output unless necessary and explicitly authorized. Read applicable governance documents in full, not just excerpts.
+
+If authorization is denied, record the original denial and its scope immediately. Do not retry, rephrase, repackage, or bypass the denied effect, including in a new session. Where required operations remain denied, stop those operations and request authorization through the platform's supported mechanism or report the blocker. Only genuinely independent authorized work may continue. Do not infer that a denied command ran or that an unexecuted validator failed.
+
 Run validators independently using the documented commands, without pipelines masking exit status. Use the supported agent publication workflow. Do not change Git identity unnecessarily, retry explicitly denied operations, or circumvent controls. Preserve partial work and continue independent authorized tasks where feasible. Do not restart completed work automatically.
 
 If diagnostics cannot be accessed privately by the operator, or any required operation fails, return the complete sanitized diagnostic report in exactly one continuous fenced plain-text code block, with no nested fences, tables, or prose outside it. Include phase status, baseline, all attempted operations and results, exact available errors, last successful checkpoint, unfinished work, publication status and next required action. Escape any embedded fence sequences as plain text. Never return only PHASE BLOCKED.
@@ -99,3 +103,4 @@ Declare PHASE COMPLETE only when required work, validation and supported publica
 | 1.0.0 | 2026-10-08T10:12:48-05:00 | Initial publication of repository-wide Copilot instructions. | Kevin Mahan |
 | 1.1.0 | 2026-11-26T00:23:25-06:00 | Added phase diagnostics, permission handling, managed publication and failure-reporting fallback. | Kevin Mahan |
 | 1.2.0 | 2026-11-26T20:18:48-06:00 | Clarified policy authority, private temporary diagnostics, fault isolation and single-block failure reporting. | Kevin Mahan |
+| 1.3.0 | 2026-11-26T22:19:35-06:00 | Required atomic execution, direct diagnostic capture and explicit denial-scope handling. | Kevin Mahan |
