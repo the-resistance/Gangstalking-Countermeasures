@@ -6,6 +6,7 @@ This file records completed repository documentation changes in reverse chronolo
 
 | Timestamp | Document | Previous Version | New Version | Change | Author |
 |-----------|----------|------------------|-------------|--------|--------|
+| 2026-11-26T22:37:23-06:00 | `docs/research/REGULATORY-OVERSIGHT-AND-REDRESS.md` | 1.0.0 | 1.1.0 | Corrected ownership metadata to Kevin Mahan with AI-assistance disclosure; reclassified unverified legal statements; distinguished 45 CFR Part 46 from Subpart A; recorded failed access to four primary sources (all remain unverified) and outstanding research requirements. | Kevin Mahan |
 | 2026-11-26T22:34:15-06:00 | `README.md` | 1.4.0 | 1.5.0 | Added a Start Here link to the Regulatory Oversight and Redress document. | GitHub Copilot |
 | 2026-11-26T22:34:15-06:00 | `MANUAL.md` | 1.1.0 | 1.2.0 | Added a Supporting Records link to the Regulatory Oversight and Redress document. | GitHub Copilot |
 | 2026-11-26T22:33:31-06:00 | `docs/research/REGULATORY-OVERSIGHT-AND-REDRESS.md` | N/A | 1.0.0 | Created a governance-oriented document formalizing the README ethics and accountability abstract, separating legal requirements, ethical principles, and proposed safeguards; named legal and ethics instruments are marked unverified and no findings are made. | GitHub Copilot |
