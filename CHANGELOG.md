@@ -6,6 +6,7 @@ This file records completed repository documentation changes in reverse chronolo
 
 | Timestamp | Document | Previous Version | New Version | Change | Author |
 |-----------|----------|------------------|-------------|--------|--------|
+| 2026-11-26T20:18:48-06:00 | `.github/copilot-instructions.md` | 1.1.0 | 1.2.0 | Consolidated execution authority, temporary private diagnostics and single-block failure reporting. | Kevin Mahan |
 | 2026-11-26T00:23:25-06:00 | `.github/copilot-instructions.md` | 1.0.0 | 1.1.0 | Added phase diagnostics, permission handling, managed publication and failure-reporting fallback. | Kevin Mahan |
 
 ## 2026-11-25
