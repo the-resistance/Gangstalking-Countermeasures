@@ -2,16 +2,16 @@
 Document Title: Regulatory Oversight and Redress
 Document ID: RSH-ETHICS-001
 Author: Kevin Mahan
-Version: 1.1.0
+Version: 1.2.0
 Created: 2026-11-26T22:33:31-06:00
-Last Updated: 2026-11-26T22:37:23-06:00
+Last Updated: 2026-11-27T03:33:28-06:00
 ---
 
 # Regulatory Oversight and Redress
 
 ## Authorship and AI-Assistance Disclosure
 
-Kevin Mahan is the document owner of record, consistent with repository attribution. Version 1.0.0 was drafted with AI assistance (GitHub Copilot), and its revision-history entry, which names GitHub Copilot, is preserved unchanged. Version 1.1.0 corrects the ownership metadata and records source-verification status; the 1.1.0 changes were also prepared with AI assistance. AI-assisted drafting does not substitute for review by the document owner or by qualified legal and ethics reviewers, and this disclosure does not claim that any such review has occurred.
+Kevin Mahan is the document owner of record, consistent with repository attribution. Version 1.0.0 was drafted with AI assistance (GitHub Copilot), and its revision-history entry, which names GitHub Copilot, is preserved unchanged. Version 1.1.0 corrects the ownership metadata and records source-verification status; the 1.1.0 changes were also prepared with AI assistance. Version 1.2.0 integrates source-review records supplied by the document owner from an external AI-assisted review (ChatGPT, 2026-11-27); it was likewise prepared with AI assistance (GitHub Copilot), and GitHub Copilot did not itself access the sources (Section 9.2). AI-assisted drafting does not substitute for review by the document owner or by qualified legal and ethics reviewers, and this disclosure does not claim that any such review has occurred.
 
 This document formalizes the ethics and accountability themes stated in the [Author's Statement and Research Abstract](../../README.md#authors-statement-and-research-abstract) of the repository README. It is a governance-oriented research document. It is not legal advice, a legal opinion, an incident report, or a finding about any person, institution, or technology. It creates no investigative subject, scenario, or evidence record.
 
@@ -34,6 +34,8 @@ Version 1.0.0 used an `ESTABLISHED LEGAL REQUIREMENT` label for statements that 
 ### Source and verification limits
 
 No primary legal text, statute, regulation, court decision, or regulatory guidance has been reviewed in full for this repository. An attempt to access the four primary sources named in Section 9 failed (see Section 9.1), so every source remains `UNVERIFIED`: its text, current version, and applicability have not been checked here. This document does not cite specific statute sections, case law, or agency rules, and it does not state what the law requires in any particular jurisdiction. Research-ethics instruments do not by themselves create enforceable legal rights, establish liability, or prove misconduct. Consult a qualified attorney and the primary texts before relying on any legal point.
+
+**Version 1.2.0 update:** The paragraph above records the state at version 1.1.0 and is preserved. Since then, the document owner supplied an external, AI-assisted review (ChatGPT, 2026-11-27) confirming access to the four sources at claim-level scope. That review is not independent Copilot verification, is not exhaustive provision verification, and does not change the limits stated above on legal effect. Current classifications are in Section 9.2.
 
 Hypotheses and findings are kept separate throughout, as required by the [Anti-Drift Policy](../../governance/ANTI_DRIFT.md) (AD-007) and the [Evidence Record Model](../evidence-model.md).
 
@@ -126,6 +128,73 @@ An attempt to access each primary source on 2026-11-26 (America/Chicago), after 
 
 The applicability limitations above are cautions stated from general knowledge, not findings from the sources.
 
+### 9.2 Source Register and Current Verification Classification (version 1.2.0)
+
+Section 9.1 is a historical record of the 2026-11-26 failed-access checkpoint and is not rewritten. This section records the later state. The sources below were reported accessible in an external AI-assisted review (ChatGPT, 2026-11-27) supplied by the document owner. GitHub Copilot did not access these sources for this revision and has not independently verified any of them. The URLs below are those supplied in the source register and differ for SRC-001 and SRC-004 from the URLs recorded in Section 9.1.
+
+| ID | Source | Issuer and date (as supplied) | URL | Type | Current classification |
+|---|---|---|---|---|---|
+| SRC-001 | Belmont Report | National Commission for the Protection of Human Subjects of Biomedical and Behavioral Research, April 18, 1979 | https://www.hhs.gov/ohrp/regulations-and-policy/belmont-report/read-the-belmont-report/index.html | Ethical guidance | `EXTERNALLY REVIEWED (ChatGPT, 2026-11-27)`; `NOT INDEPENDENTLY VERIFIED BY COPILOT` |
+| SRC-002 | 45 CFR Part 46, Protection of Human Subjects | Federal regulation; eCFR displayed currency 2026-11-24 | https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-A/part-46 | Federal regulation | `EXTERNALLY REVIEWED (ChatGPT, 2026-11-27)`; `NOT INDEPENDENTLY VERIFIED BY COPILOT`; applicability `UNRESOLVED` |
+| SRC-003 | WMA Declaration of Helsinki | World Medical Association, October 2024 revision | https://www.wma.net/policies-post/wma-declaration-of-helsinki/ | Professional medical research ethics | `EXTERNALLY REVIEWED (ChatGPT, 2026-11-27)`; `NOT INDEPENDENTLY VERIFIED BY COPILOT` |
+| SRC-004 | Nuremberg Code | USA v. Karl Brandt et al., August 19, 1947 | https://encyclopedia.ushmm.org/content/en/article/the-nuremberg-code | Historical judicial and research ethics instrument | `EXTERNALLY REVIEWED (ChatGPT, 2026-11-27)`; `NOT INDEPENDENTLY VERIFIED BY COPILOT` |
+
+For SRC-004, the registered URL is an encyclopedia article presenting the text, not the original judicial record; this document does not state that the original record was reviewed.
+
+**Claim-level review scope.** Review is recorded only for the provisions listed below. Accessibility of a source is not exhaustive verification of its provisions, and provisions not listed were not reviewed. Where this document's support for a statement is insufficient, the preliminary classification is retained.
+
+| ID | Provisions in review scope |
+|---|---|
+| SRC-001 | A (research and practice boundaries); B.1 (autonomy, additional protections); B.2 (beneficence, harm reduction); B.3 (justice, equitable distribution); C.1 (informed consent); C.2 (risk and benefit assessment); C.3 (equitable participant selection) |
+| SRC-002 | Subparts A (Common Rule), B (pregnancy and fetal protections), C (prisoner protections), D (children's protections), E (IRB registration); 46.101 (applicability); 46.102 (definitions); 46.104 (exemptions); 46.109-113 (IRB review and oversight); 46.116 (informed consent and exceptions); 46.117 (consent documentation and waivers); 46.123 (federal support termination) |
+| SRC-003 | Paragraphs 1-2 (scope, ethical responsibility); 6-9 (participant rights); 15 (research-related injury); 16-18 (risk assessment, monitoring); 19-20 (vulnerability); 21-22 (scientific rigor, protocols); 23 (independent ethics review); 24 (privacy, confidentiality); 25-32 (consent, qualified exceptions); 35-36 (registration, reporting) |
+| SRC-004 | Principles 1-10: voluntary consent; social value; scientific justification; avoiding unnecessary suffering; restrictions on anticipated fatal or disabling harm, subject to the historical text's qualified exception; proportionate risk; protective preparations; qualified personnel; participant termination rights; researcher termination responsibility |
+
+**SRC-002 distinctions.** These four concepts are separate and must not be conflated:
+
+- *Regulatory applicability* (46.101): whether Part 46 covers given research at all. Subpart A is the Common Rule baseline; Subparts B-E address additional matters.
+- *Exemption* (46.104): research within a covered scope that is excluded from some requirements.
+- *Consent waiver or alteration* (46.116): conditional exceptions to informed-consent requirements.
+- *Documentation waiver* (46.117): conditional waiver of the requirement to document consent, which is distinct from waiving consent itself.
+
+The conditions for each are not detailed here (Section 11).
+
+### 9.3 Comparative Framework
+
+This matrix is limited to the provisions in the review scope of Section 9.2. "Not itemized" means the dimension is not explicitly addressed by the provisions in review scope; it does not assert that the instrument as a whole is silent. Entries marked (preliminary) are not supported at provision level by the review record.
+
+| Dimension | SRC-001 Belmont | SRC-002 45 CFR 46 | SRC-003 Helsinki | SRC-004 Nuremberg |
+|---|---|---|---|---|
+| Autonomy and consent | B.1; C.1 | 46.116; 46.117 | 6-9; 25-32 | Principle 1 |
+| Risk minimization | B.2; C.2 | 46.109-113 (preliminary; criteria not itemized) | 15; 16-18 | Principles 4, 5, 6, 7 |
+| Independent ethics oversight | Not itemized | 46.109-113; Subpart E | 23 | Not itemized; Principle 8 addresses qualified personnel only |
+| Equitable participant selection | B.3; C.3 | Subparts B, C, D (additional protections); 46.109-113 (preliminary) | 19-20 | Not itemized |
+| Privacy and confidentiality | Not itemized | Not itemized (preliminary) | 24 | Not itemized |
+| Scientific validity | Not itemized | Not itemized (preliminary) | 21-22 | Principles 2, 3, 8 |
+| Withdrawal rights | Not itemized (preliminary; related to C.1) | Not itemized (preliminary; related to 46.116) | Not itemized (preliminary; related to 25-32) | Principle 9 |
+| Termination safeguards | Not itemized | 46.113 (preliminary); 46.123 | 16-18 (monitoring; preliminary) | Principle 10 |
+
+Only SRC-002 is a regulation, and its legal effect is limited to research within its applicability. SRC-001, SRC-003, and SRC-004 are ethical or historical instruments that do not independently create enforceable legal obligations.
+
+### 9.4 Applicability Matrix
+
+| ID | Statement | Classification |
+|---|---|---|
+| ETH-001 | Participant autonomy | `ETHICAL PRINCIPLE` |
+| ETH-002 | Harm minimization | `ETHICAL PRINCIPLE` |
+| ETH-003 | Informed consent principles | `ETHICAL PRINCIPLE` |
+| REG-001 | Oversight of covered research | `CONDITIONAL LEGAL APPLICABILITY`; limited to research covered by SRC-002 |
+| REG-002 | Conditional consent exceptions | `CONDITIONAL LEGAL APPLICABILITY`; conditions not detailed here |
+| REG-003 | Part 46 versus Subpart A | `CONDITIONAL LEGAL APPLICABILITY`; Part 46 as a whole is not the Common Rule, which is Subpart A |
+| LAW-001 | Part 46 applies universally | `INCORRECT` |
+| LAW-002 | All instruments independently establish enforceable legal obligations | `INCORRECT` |
+| LAW-003 | Applicability to specific events | `UNRESOLVED` |
+| LAW-004 | Availability of legal remedies | `UNRESOLVED` |
+| EVD-001 | Occurrence of alleged misconduct | `NOT ESTABLISHED` |
+| EVD-002 | Responsibility of any party | `NOT ESTABLISHED` |
+
+Source verification does not establish that any alleged activity occurred. This document identifies and accuses no individual, organization, or institution.
+
 ## 10. Distinction Between Hypotheses and Findings
 
 - A **hypothesis** is a proposed explanation that remains open to testing, such as the README's hypothesized harms or any suspected unauthorized use of a technology. It is labeled `CLAIM_ONLY` or `UNRESOLVED` until evidence supports a more specific state.
@@ -141,6 +210,7 @@ The applicability limitations above are cautions stated from general knowledge, 
 - Whether any human-subject regulation, institutional review requirement, or privacy law applies to this archive remains an `UNRESOLVED QUESTION`.
 - No independent ethics review, legal review, or oversight record exists.
 - No jurisdiction-specific reporting or redress pathway has been identified or verified.
+- Version 1.2.0 outstanding requirements: detailed regulatory exceptions (the conditions for exemptions, consent waivers, and documentation waivers under SRC-002); jurisdiction-specific applicability; independent legal and ethics review; independent factual corroboration. Independent Copilot or human verification of the externally reviewed sources (Section 9.2) and provision-level review beyond the recorded scope also remain outstanding.
 
 ## Related Documents
 
@@ -159,3 +229,4 @@ The applicability limitations above are cautions stated from general knowledge, 
 |---------|-----------|-------------|--------|
 | 1.0.0 | 2026-11-26T22:33:31-06:00 | Initial publication formalizing the README ethics and accountability abstract, separating legal requirements, ethical principles, and proposed safeguards without reviewing primary legal texts. | GitHub Copilot |
 | 1.1.0 | 2026-11-26T22:37:23-06:00 | Corrected ownership metadata to Kevin Mahan and added AI-assistance disclosure; reclassified unverified legal statements; distinguished 45 CFR Part 46 from Subpart A (Common Rule); recorded failed access to four primary sources and their unverified status; added outstanding research requirements. | Kevin Mahan |
+| 1.2.0 | 2026-11-27T03:33:28-06:00 | Integrated externally reviewed research ethics sources (SRC-001 to SRC-004; ChatGPT, 2026-11-27, not independently verified by Copilot); added source register, claim-level review scope, comparative framework, and applicability matrix; preserved Section 9.1 failed-access record; retained outstanding requirements. | Kevin Mahan |

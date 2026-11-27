@@ -2,6 +2,12 @@
 
 This file records completed repository documentation changes in reverse chronological order. See the [Versioning Policy](governance/VERSIONING.md) for entry requirements.
 
+## 2026-11-27
+
+| Timestamp | Document | Previous Version | New Version | Change | Author |
+|-----------|----------|------------------|-------------|--------|--------|
+| 2026-11-27T03:33:28-06:00 | `docs/research/REGULATORY-OVERSIGHT-AND-REDRESS.md` | 1.1.0 | 1.2.0 | Integrated externally reviewed research ethics sources SRC-001 to SRC-004 (ChatGPT review, 2026-11-27; not independently verified by Copilot) with claim-level review scope, a comparative framework, and an applicability matrix; preserved the Section 9.1 failed-access record and retained outstanding requirements. | Kevin Mahan |
+
 ## 2026-11-26
 
 | Timestamp | Document | Previous Version | New Version | Change | Author |
