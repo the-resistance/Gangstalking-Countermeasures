@@ -2,6 +2,12 @@
 
 This file records completed repository documentation changes in reverse chronological order. See the [Versioning Policy](governance/VERSIONING.md) for entry requirements.
 
+## 2026-11-26
+
+| Timestamp | Document | Previous Version | New Version | Change | Author |
+|-----------|----------|------------------|-------------|--------|--------|
+| 2026-11-26T20:18:48-06:00 | `.github/copilot-instructions.md` | 1.0.0 | 1.2.0 | Consolidated execution authority, temporary private diagnostics and single-block failure reporting. | Kevin Mahan |
+
 ## 2026-11-16
 
 | Timestamp | Document | Previous Version | New Version | Change | Author |
