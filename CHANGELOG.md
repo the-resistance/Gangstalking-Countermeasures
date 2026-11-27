@@ -6,6 +6,7 @@ This file records completed repository documentation changes in reverse chronolo
 
 | Timestamp | Document | Previous Version | New Version | Change | Author |
 |-----------|----------|------------------|-------------|--------|--------|
+| 2026-11-27T03:37:30-06:00 | `docs/research/REGULATORY-OVERSIGHT-AND-REDRESS.md` | 1.2.0 | 1.2.1 | Editorial consistency corrections: distinguished historical 1.1.0 verification status from the current external AI-assisted review in the Section 1 label definition, the Section 9 heading, and Section 11 (split into historical and current items); Section 9.1 unchanged; no external finding promoted to independent verification. | Kevin Mahan |
 | 2026-11-27T03:33:28-06:00 | `docs/research/REGULATORY-OVERSIGHT-AND-REDRESS.md` | 1.1.0 | 1.2.0 | Integrated externally reviewed research ethics sources SRC-001 to SRC-004 (ChatGPT review, 2026-11-27; not independently verified by Copilot) with claim-level review scope, a comparative framework, and an applicability matrix; preserved the Section 9.1 failed-access record and retained outstanding requirements. | Kevin Mahan |
 
 ## 2026-11-26

@@ -2,9 +2,9 @@
 Document Title: Regulatory Oversight and Redress
 Document ID: RSH-ETHICS-001
 Author: Kevin Mahan
-Version: 1.2.0
+Version: 1.2.1
 Created: 2026-11-26T22:33:31-06:00
-Last Updated: 2026-11-27T03:33:28-06:00
+Last Updated: 2026-11-27T03:37:30-06:00
 ---
 
 # Regulatory Oversight and Redress
@@ -23,7 +23,7 @@ Every statement below carries one of these labels (version 1.1.0 refined the leg
 
 | Label | Meaning |
 |---|---|
-| **VERIFIED LEGAL REQUIREMENT** | A requirement whose primary text has been reviewed and recorded in Section 9.1. None exists in this document yet. |
+| **VERIFIED LEGAL REQUIREMENT** | A requirement whose primary text has been reviewed and recorded in Section 9.1 (historical 1.1.0 wording; no source review was recorded there). As of version 1.2.1, Section 9.2 records an external AI-assisted review that is not independent verification, and no statement in this document is classified under this label. None exists in this document yet. |
 | **CONDITIONAL LEGAL APPLICABILITY** | A legal requirement that may exist but is unverified here, and whose applicability depends on jurisdiction, actor, funding, and facts. It is not a statement that the requirement applies to this archive or to anyone. |
 | **ETHICAL PRINCIPLE** | A widely discussed normative principle or the author's stated conviction. It is not a legal obligation, and does not create enforceable legal rights, liability, or proof of misconduct, unless a law separately adopts it. |
 | **PROPOSED SAFEGUARD** | A practice proposed for this archive. It is not a legal requirement and has not been implemented or independently reviewed. |
@@ -97,9 +97,9 @@ The repository's existing vocabulary applies and is not changed here:
 - **PROPOSED SAFEGUARD:** Provide originals and records under appropriate controls, keeping preserved originals unaltered, and describe the limits of the evidence honestly, including alternative explanations and gaps.
 - **PROPOSED SAFEGUARD:** Do not use this archive to harass, threaten, or publicly accuse an identified person or institution without source-backed support and legal advice.
 
-## 9. Instruments Named for Orientation (UNVERIFIED in this archive)
+## 9. Instruments Named for Orientation (historical 1.1.0 status: UNVERIFIED; current status in Section 9.2)
 
-These are listed so that readers can locate the primary texts. Their contents have not been reviewed for this document and nothing here summarizes them as binding on the author or any institution.
+These are listed so that readers can locate the primary texts. Their contents had not been reviewed for this document at version 1.1.0, and nothing here summarizes them as binding on the author or any institution. The "Status in this archive" column below records the version 1.1.0 status and is preserved as historical; the current classification, `EXTERNALLY REVIEWED (ChatGPT, 2026-11-27)` and `NOT INDEPENDENTLY VERIFIED BY COPILOT`, is recorded in Section 9.2. Neither status is independent verification.
 
 | Instrument | Type | Relevance | Status in this archive |
 |---|---|---|---|
@@ -204,13 +204,24 @@ Source verification does not establish that any alleged activity occurred. This 
 
 ## 11. Open Items and Missing Information
 
+### 11.1 Historical outstanding items (version 1.1.0 checkpoint, preserved)
+
+These items were recorded at version 1.1.0, after the failed 2026-11-26 access attempt. They are retained as a historical record. Where they have been partly addressed by the external AI-assisted review (Section 9.2), that review is not independent verification, so the current requirements are in Section 11.2.
+
 - Primary legal and ethics texts in Section 9 have not been obtained or reviewed; access failed on 2026-11-26 (Section 9.1). Outstanding research requirement: retrieve and review each source in full from an environment with network access, then record issuing authority, title, publication or revision date, access timestamp, sections reviewed, supported propositions, applicability limits, and verification status.
 - Confirm the current Declaration of Helsinki revision (the document owner requested the 2024 version) and the current version of 45 CFR Part 46, including its subpart structure and the Subpart A relationship.
 - Confirm the original issuing authorities and dates of the Belmont Report and Nuremberg Code from the sources.
 - Whether any human-subject regulation, institutional review requirement, or privacy law applies to this archive remains an `UNRESOLVED QUESTION`.
 - No independent ethics review, legal review, or oversight record exists.
 - No jurisdiction-specific reporting or redress pathway has been identified or verified.
-- Version 1.2.0 outstanding requirements: detailed regulatory exceptions (the conditions for exemptions, consent waivers, and documentation waivers under SRC-002); jurisdiction-specific applicability; independent legal and ethics review; independent factual corroboration. Independent Copilot or human verification of the externally reviewed sources (Section 9.2) and provision-level review beyond the recorded scope also remain outstanding.
+
+### 11.2 Current outstanding requirements (version 1.2.1)
+
+- Independent verification of the sources in Section 9.2, which are `EXTERNALLY REVIEWED (ChatGPT, 2026-11-27)` and `NOT INDEPENDENTLY VERIFIED BY COPILOT`, and provision-level review beyond the recorded review scope.
+- Detailed regulatory exceptions: the conditions for exemptions, consent waivers, and documentation waivers under SRC-002.
+- Jurisdiction-specific applicability, including whether any human-subject regulation, institutional review requirement, or privacy law applies to this archive (LAW-003, `UNRESOLVED`), and any reporting or redress pathway (LAW-004, `UNRESOLVED`).
+- Independent legal and ethics review; no such review record exists.
+- Independent factual corroboration. Source verification does not establish that any alleged activity occurred (EVD-001, EVD-002, `NOT ESTABLISHED`).
 
 ## Related Documents
 
@@ -230,3 +241,4 @@ Source verification does not establish that any alleged activity occurred. This 
 | 1.0.0 | 2026-11-26T22:33:31-06:00 | Initial publication formalizing the README ethics and accountability abstract, separating legal requirements, ethical principles, and proposed safeguards without reviewing primary legal texts. | GitHub Copilot |
 | 1.1.0 | 2026-11-26T22:37:23-06:00 | Corrected ownership metadata to Kevin Mahan and added AI-assistance disclosure; reclassified unverified legal statements; distinguished 45 CFR Part 46 from Subpart A (Common Rule); recorded failed access to four primary sources and their unverified status; added outstanding research requirements. | Kevin Mahan |
 | 1.2.0 | 2026-11-27T03:33:28-06:00 | Integrated externally reviewed research ethics sources (SRC-001 to SRC-004; ChatGPT, 2026-11-27, not independently verified by Copilot); added source register, claim-level review scope, comparative framework, and applicability matrix; preserved Section 9.1 failed-access record; retained outstanding requirements. | Kevin Mahan |
+| 1.2.1 | 2026-11-27T03:37:30-06:00 | Editorial consistency corrections per AD-005: the Section 1 VERIFIED LEGAL REQUIREMENT definition, the Section 9 heading and status-column introduction, and Section 11 now distinguish the historical 1.1.0 status from the current external AI-assisted review; Section 11 split into 11.1 (historical items, preserved) and 11.2 (current requirements). Reason: the 1.2.0 integration left those passages referencing the earlier checkpoint. Section 9.1 unchanged; no external finding promoted to independent verification. | Kevin Mahan |
