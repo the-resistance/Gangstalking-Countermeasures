@@ -257,6 +257,22 @@ class CorrectionAssociationTests(IntegrityTestCase):
     def superseded(self, text):
         return f"{text} This finding is superseded.\n"
 
+    def test_aud005_incidental_identifier_cannot_authorize_supersession(self):
+        base = document(findings="FND-001: Beeping is periodic.\n\nUnrelated observation.\n")
+        current = document(
+            findings="FND-001: Beeping is periodic.\n\nUnrelated observation. See FND-001. Superseded.\n",
+            corrections=record(),
+        )
+        self.assertFails(current, "INTEGRITY-010", base)
+
+    def test_aud005_identified_correction_cannot_authorize_identifier_free_block(self):
+        base = document(findings="FND-001: Beeping is periodic.\n\nBeeping is periodic.\n")
+        current = document(
+            findings="FND-001: Beeping is periodic.\n\nBeeping is periodic. Superseded.\n",
+            corrections=record(),
+        )
+        self.assertFails(current, "INTEGRITY-010", base)
+
     def test_aud005_wrong_statement_with_correct_finding_id_fails(self):
         self.assertFails(self.corrected(original="Beeping stops at night."), "INTEGRITY-010", fragment="does not match")
 
