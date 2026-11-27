@@ -312,6 +312,14 @@ class CorrectionAssociationTests(IntegrityTestCase):
         current += "\n## Correction Records\n\n" + record(reference="Notes section")
         self.assertFails(current, "INTEGRITY-010", base, fragment="section")
 
+    def test_aud005_heading_style_findings_resolve_by_heading_identifier(self):
+        base = document(findings="### FND-001\n\nBeeping is periodic.\n\nMore detail.\n\n### FND-002\n\nBeeping stops at night.\n")
+        findings = base.split("\n## Evidence")[0].split("## Findings\n\n")[1].replace("More detail.", "More detail. Superseded.")
+        good = document(findings=findings, corrections=record())
+        self.assertPasses(good, base)
+        wrong = document(findings=findings, corrections=record(original="Beeping stops at night."))
+        self.assertFails(wrong, "INTEGRITY-010", base, fragment="does not match")
+
     def test_aud005_unavailable_baseline_is_not_verified_traceability(self):
         fields = {"original": "Beeping is periodic."}
         self.assertFalse(vi.record_traceable(vi.CorrectionRecord(1, fields, "COR-001"), None))

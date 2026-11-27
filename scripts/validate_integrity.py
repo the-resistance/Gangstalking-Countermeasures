@@ -130,7 +130,6 @@ FENCE_RE = re.compile(r"^\s{0,3}(`{3,}|~{3,})(.*)$")
 HEADING_RE = re.compile(r"^(#{1,6})\s+(.+?)\s*#*\s*$")
 PROTECTED_MARKER_RE = re.compile(r"<!--\s*(BEGIN|END) PROTECTED:\s*([\w-]+)\s*-->")
 SUPERSEDED_RE = re.compile(r"(?i)\bsupersed(?:e|ed|es)\b")
-ISO_RE = re.compile(r"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2})?")
 SEMVER_RE = re.compile(r"^\d+\.\d+\.\d+$")
 IDENTIFIER_RE = re.compile(r"\b[A-Z]{2,6}-\d{3,8}(?:-\d{3})?\b")
 NON_RECORD_PREFIXES = {"SHA", "MD", "UTF", "ISO", "RFC", "CVE", "HTTP"}
@@ -264,12 +263,35 @@ def split_cells(line: str) -> list[str]:
     return [part.strip() for part in parts]
 
 
+TIMESTAMP_FIELD_RE = re.compile(
+    r"(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})(?:\.(\d+))?(?:(Z)|([+-])(\d{2}):(\d{2}))"
+)
+
+
 def offset_timestamp(value: str) -> dt.datetime | None:
-    match = ISO_RE.search(value.replace("`", ""))
-    if not match or not re.search(r"(?:Z|[+-]\d{2}:\d{2})$", match.group(0)):
+    """Parse a field that is exactly one offset-aware ISO 8601 timestamp, optionally in one balanced code span."""
+    text = value.strip()
+    if text.startswith("`") or text.endswith("`"):
+        wrapper = re.fullmatch(r"(`{1,2})([^`]+)\1", text)
+        if not wrapper:
+            return None
+        text = wrapper.group(2).strip()
+    match = TIMESTAMP_FIELD_RE.fullmatch(text)
+    if not match:
         return None
+    year, month, day, hour, minute, second = (int(match.group(i)) for i in range(1, 7))
+    if match.group(8):
+        offset = dt.timedelta(0)
+    else:
+        offset_hours, offset_minutes = int(match.group(10)), int(match.group(11))
+        if offset_hours > 23 or offset_minutes > 59:
+            return None
+        offset = dt.timedelta(hours=offset_hours, minutes=offset_minutes)
+        if match.group(9) == "-":
+            offset = -offset
+    microsecond = int((match.group(7) or "0")[:6].ljust(6, "0"))
     try:
-        return dt.datetime.fromisoformat(match.group(0).replace("Z", "+00:00"))
+        return dt.datetime(year, month, day, hour, minute, second, microsecond, tzinfo=dt.timezone(offset))
     except ValueError:
         return None
 
@@ -386,13 +408,103 @@ def record_problems(record: CorrectionRecord) -> list[str]:
     return problems
 
 
-def record_identifiers(record: CorrectionRecord) -> set[str]:
-    return identifiers(" ".join((record.heading, record.fields.get("reference", ""), record.fields.get("original", ""))))
+@dataclass
+class HistoricalFinding:
+    identifier: str | None
+    text: str
+    section: str
+    line: int
 
 
-def record_traceable(record: CorrectionRecord, historical: str | None) -> bool:
+LEADING_ID_RE = re.compile(r"^\s*(?:[|>]\s*)?(?:[-*+]\s+|\d+[.)]\s+)?(?:\*\*|__)?(" + IDENTIFIER_RE.pattern + r")(?:\*\*|__)?(?=$|[\s:.)\-\u2014|])")
+EXCLUDED_FINDING_SECTIONS = REVISION_TITLES + CORRECTION_TITLES
+
+
+def leading_identifier(value: str) -> str | None:
+    match = LEADING_ID_RE.match(value)
+    return match.group(1) if match and match.group(1) in identifiers(match.group(1)) else None
+
+
+def historical_findings(structure: Structure) -> list[HistoricalFinding]:
+    """Index findings by stable leading identifier (or heading identifier) and validated structural boundaries."""
+    findings: list[HistoricalFinding] = []
+    excluded = [s for s in structure.sections if s.title in EXCLUDED_FINDING_SECTIONS]
+    heading_findings = {
+        s.heading: leading_identifier(s.title)
+        for s in structure.sections
+        if leading_identifier(s.title) and not any(e.heading <= s.heading < e.end for e in excluded)
+    }
+    for heading, identifier in heading_findings.items():
+        section = next(s for s in structure.sections if s.heading == heading)
+        parents = [s for s in structure.sections if s.heading < heading < s.end and s.level < section.level]
+        body = " ".join(line for i, line in enumerate(structure.lines[section.start : section.end], section.start) if structure.kinds[i] == "text")
+        findings.append(HistoricalFinding(identifier, normalize(body), max(parents, key=lambda s: s.level).title if parents else "", heading + 1))
+    seen: set[tuple[int, int]] = set()
+    for index, line in enumerate(structure.lines):
+        stripped = line.strip()
+        if structure.kinds[index] != "text" or not stripped or HEADING_RE.match(line) or stripped.startswith("<!--"):
+            continue
+        section = innermost_section(structure, index)
+        if section is None or any(e.heading <= index < e.end for e in excluded):
+            continue
+        own = leading_identifier(line)
+        if section.heading in heading_findings and not own:
+            continue
+        bounds = block_bounds(structure, index)
+        if bounds in seen:
+            continue
+        seen.add(bounds)
+        block = " ".join(structure.lines[bounds[0] : bounds[1]])
+        findings.append(HistoricalFinding(leading_identifier(structure.lines[bounds[0]]), normalize(block), section.title, bounds[0] + 1))
+    return findings
+
+
+def reference_identifiers(record: CorrectionRecord) -> set[str]:
+    """Target-finding identifiers come only from the record's Reference field, never its own heading or statement."""
+    return identifiers(record.fields.get("reference", ""))
+
+
+def trace_problem(record: CorrectionRecord, historical: str | None, section: str | None = None) -> str | None:
+    """Resolve the record to exactly one historical finding whose text contains its original statement."""
+    if historical is None:
+        return "the historical baseline is unavailable, so traceability is unverified"
     original = normalize(record.fields.get("original", ""))
-    return historical is None or (bool(original) and original in normalize(historical))
+    if not original:
+        return "original statement is empty"
+    structure = analyze(historical)
+    if structure.problems:
+        return "the historical baseline has malformed section boundaries, so resolution is unverified"
+    findings = historical_findings(structure)
+    targets = reference_identifiers(record)
+    if len(targets) > 1:
+        return f"conflicting references ({', '.join(sorted(targets))}) name more than one finding"
+    if targets:
+        target = next(iter(targets))
+        matches = [f for f in findings if f.identifier == target]
+        if not matches:
+            return f"referenced finding {target} was not found in the historical baseline"
+        if len(matches) > 1:
+            return f"referenced finding {target} is a duplicate identifier in the historical baseline (ambiguous)"
+        if original not in matches[0].text:
+            return f"original statement does not match the historical finding {target}"
+        return None
+    observation = original_observation(historical)
+    if "original observation" in normalize(record.fields.get("reference", "")):
+        if observation is not None and original in normalize(observation):
+            return None
+        return "original statement does not match the historical Original Observation"
+    matches = [f for f in findings if f.identifier is None and original in f.text]
+    if not matches:
+        return "original statement does not match any identifier-free historical finding"
+    if len(matches) > 1:
+        return "original statement is ambiguous: it matches more than one historical finding"
+    if section is not None and matches[0].section != section:
+        return f"original statement is in historical section '{matches[0].section}', not '{section}'"
+    return None
+
+
+def record_traceable(record: CorrectionRecord, historical: str | None, section: str | None = None) -> bool:
+    return trace_problem(record, historical, section) is None
 
 
 def corrections_preserve_original(text: str, original: str) -> bool:
@@ -403,20 +515,61 @@ def corrections_preserve_original(text: str, original: str) -> bool:
     )
 
 
-def is_administrative_revision(structure: Structure, index: int, match: re.Match[str]) -> bool:
-    """A well-formed revision-history table row whose sentence does not concern a finding."""
+ADMIN_TERM = r"(?:formatting|format|layout|table|metadata|template|guidance|headings?|markdown|links?|navigation|style|numbering|whitespace|front\s+matter)"
+ADMIN_QUALIFIER = r"(?:earlier|previous|prior|old|existing)"
+ADMIN_SENTENCE_RES = (
+    re.compile(
+        rf"(?:(?:version\s+\d+\.\d+\.\d+|this\s+(?:revision|update))\s+)?supersed(?:e|ed|es)\s+(?:the\s+)?(?:{ADMIN_QUALIFIER}\s+)?"
+        rf"{ADMIN_TERM}(?:\s+{ADMIN_TERM})?(?:\s+(?:of|in|for|on)\s+(?:this|the)\s+(?:table|document|file|section|page|template))?[.;!?]*",
+        re.IGNORECASE,
+    ),
+    re.compile(
+        rf"(?:the\s+)?(?:{ADMIN_QUALIFIER}\s+)?{ADMIN_TERM}(?:\s+{ADMIN_TERM})?\s+(?:(?:was|were|is|are)\s+)?supersed(?:e|ed|es)[.;!?]*",
+        re.IGNORECASE,
+    ),
+)
+
+
+def sentence_spans(text: str) -> list[tuple[int, int]]:
+    spans, start = [], 0
+    for boundary in re.finditer(r"[.;!?]+(?=\s|$)", text):
+        spans.append((start, boundary.end()))
+        start = boundary.end()
+    if text[start:].strip():
+        spans.append((start, len(text)))
+    return [(a, b) for a, b in spans if text[a:b].strip()]
+
+
+def valid_revision_rows(structure: Structure) -> dict[int, tuple[str, ...]]:
+    """Well-formed revision rows (four cells, unique semantic version, offset-aware timestamp, author) by line number."""
+    rows, _ = revision_table(structure)
+    versions = [cells[0] for _, cells in rows]
+    return {
+        number: cells
+        for number, cells in rows
+        if versions.count(cells[0]) == 1 and offset_timestamp(cells[1]) is not None and cells[2] and cells[3]
+    }
+
+
+def is_administrative_revision(
+    structure: Structure, index: int, match: re.Match[str], rows: dict[int, tuple[str, ...]] | None = None
+) -> bool:
+    """A validated revision-table row whose supersession is unambiguously formatting or metadata and whose row concerns no finding."""
     section = innermost_section(structure, index)
     if section is None or section.title not in REVISION_TITLES or structure.kinds[index] != "text":
         return False
-    cells = split_cells(structure.lines[index])
-    if len(cells) != 4 or not SEMVER_RE.match(cells[0]) or offset_timestamp(cells[1]) is None:
+    cells = (valid_revision_rows(structure) if rows is None else rows).get(index + 1)
+    if cells is None:
         return False
+    line = structure.lines[index]
     description = cells[2]
-    position = structure.lines[index].find(description)
-    start = match.start() - position
-    for sentence in re.finditer(r"[^.;!?]+[.;!?]?", description):
-        if sentence.start() <= start < sentence.end() + 1:
-            return not (FINDING_TERMS_RE.search(sentence.group(0)) or identifiers(sentence.group(0)))
+    offset = line.find(description, line.find(cells[1]) + len(cells[1]))
+    if offset < 0 or FINDING_TERMS_RE.search(description) or identifiers(description):
+        return False
+    start = match.start() - offset
+    for begin, finish in sentence_spans(description):
+        if begin <= start < finish:
+            return any(pattern.fullmatch(description[begin:finish].strip()) for pattern in ADMIN_SENTENCE_RES)
     return False
 
 
@@ -424,11 +577,16 @@ def superseded_problems(structure: Structure, historical: str | None) -> list[tu
     """Return (line, message) for supersession claims that lack a complete, linked correction record."""
     records = correction_records(structure)
     correction_ranges = [(s.heading, s.end) for s in sections_titled(structure, CORRECTION_TITLES)]
+    revision_rows = valid_revision_rows(structure)
     results: list[tuple[int, str]] = []
     reported_blocks: set[tuple[int, int]] = set()
     for index, line in enumerate(structure.lines):
-        match = SUPERSEDED_RE.search(line)
-        if not match or structure.kinds[index] == "front" or is_administrative_revision(structure, index, match):
+        matches = list(SUPERSEDED_RE.finditer(line))
+        if (
+            not matches
+            or structure.kinds[index] == "front"
+            or all(is_administrative_revision(structure, index, match, revision_rows) for match in matches)
+        ):
             continue
         number = index + 1
         inside = None
@@ -437,8 +595,9 @@ def superseded_problems(structure: Structure, historical: str | None) -> list[tu
                 inside = max((r for r in records if begin < r.line - 1 < finish and r.line <= number), key=lambda r: r.line, default=None)
         if inside is not None:
             problems = record_problems(inside)
-            if not problems and not record_traceable(inside, historical):
-                problems = ["original statement is not traceable to the preserved historical record"]
+            if not problems:
+                trace = trace_problem(inside, historical)
+                problems = [trace] if trace else []
             if problems:
                 results.append((number, f"Correction record at line {inside.line} is incomplete: {'; '.join(problems)}."))
             continue
@@ -448,11 +607,14 @@ def superseded_problems(structure: Structure, historical: str | None) -> list[tu
         reported_blocks.add(bounds)
         block = " ".join(structure.lines[bounds[0] : bounds[1]])
         section = innermost_section(structure, index)
-        ids = identifiers(block) | (identifiers(section.title) if section and section.heading == index else set())
+        heading_id = leading_identifier(section.title) if section else None
+        leading = leading_identifier(structure.lines[bounds[0]]) or heading_id
+        ids = {leading} if leading else identifiers(block)
+        section_title = section.title if section else ""
         linked = [
             record
             for record in records
-            if (ids and ids & record_identifiers(record))
+            if (ids and ids & reference_identifiers(record))
             or (not ids and record.fields.get("original") and normalize(record.fields["original"]) in normalize(block))
         ]
         label = ", ".join(sorted(ids)) if ids else "the statement at this location"
@@ -461,10 +623,11 @@ def superseded_problems(structure: Structure, historical: str | None) -> list[tu
             suffix = f" Incomplete records: {'; '.join(hints)}." if hints else ""
             results.append((number, f"A finding ({label}) is described as superseded without a correction record linked to it.{suffix}"))
             continue
-        valid = [r for r in linked if not record_problems(r) and record_traceable(r, historical)]
+        valid = [r for r in linked if not record_problems(r) and record_traceable(r, historical, None if ids else section_title)]
         if not valid:
             detail = "; ".join(
-                f"record at line {r.line}: {'; '.join(record_problems(r)) or 'original statement is not traceable to the preserved historical record'}"
+                f"record at line {r.line}: "
+                + ("; ".join(record_problems(r)) or trace_problem(r, historical, None if ids else section_title) or "unresolved")
                 for r in linked
             )
             results.append((number, f"Correction for {label} is incomplete or untraceable ({detail})."))

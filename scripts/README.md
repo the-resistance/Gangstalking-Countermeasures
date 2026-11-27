@@ -2,9 +2,9 @@
 Document Title: Documentation Validation Tools
 Document ID: GOV-VALIDATION-001
 Author: Kevin Mahan
-Version: 1.2.0
+Version: 1.2.1
 Created: 2026-10-08T10:36:37-05:00
-Last Updated: 2026-11-27T04:14:59-06:00
+Last Updated: 2026-11-27T04:44:42-06:00
 ---
 
 # Documentation Validation Tools
@@ -35,10 +35,11 @@ The integrity validator uses stable `Original Observation` sections and matching
 
 `INTEGRITY-010` applies to changed documents that already exist in the baseline. It uses validated Markdown section boundaries (front matter, fenced code, and headings) rather than a document-wide word search:
 
-- A single-line, well-formed Revision History table row (four cells, semantic version, offset-aware timestamp) that uses supersession wording in a sentence that does not concern a finding, observation, evidence, appendment, claim, statement, or an identifier such as `FND-001` is administrative and is not a finding correction.
+- A supersession occurrence is administrative only when it is in a validated Revision History table row (four cells, unique semantic version, strict offset-aware timestamp, author) whose description mentions no finding, observation, evidence, appendment, claim, statement, or identifier such as `FND-001`, and whose sentence is explicitly about formatting or metadata (for example `Superseded the earlier table formatting.`). Every occurrence on a line is evaluated independently. Ambiguous wording such as `Superseded earlier text.`, mixed administrative and substantive descriptions, and rows with invalid metadata are not exempt.
 - Every other use, including prose placed under a Revision History heading, malformed rows, and revision rows that concern a finding, requires a complete correction record.
 - A record lives under a `Correction Records` (or `Corrections`) heading, either as one subsection per record or as consecutive blocks beginning with an `Original statement` field. Required fields: `Original statement`, `Corrected statement` (or `Correction`), `Reason`, and `Correction timestamp` (offset-aware ISO 8601). Add `Reference` (or `Corrects`) with the finding identifier.
-- A record satisfies a finding only if it is linked to it: it names an identifier found in the finding, or, when the finding has no identifier, its original statement appears in the finding. The original statement must also be traceable to the baseline document. A record for one finding never satisfies another.
+- A record satisfies a finding only if it is linked to it. Target authority comes only from the record's `Reference` field (never from the record's own heading identifier or from identifiers inside its original statement), and a `Reference` naming more than one finding is conflicting. The reference must resolve to exactly one baseline finding, indexed by its stable leading or heading identifier, and the original statement must appear in that finding. Duplicate baseline identifiers, unknown identifiers, and mismatched statements are rejected. When the finding has no identifier, the original statement must match exactly one identifier-free baseline finding in the same section. An unavailable baseline is never treated as verified traceability. A record for one finding never satisfies another.
+- Correction timestamps (and revision-row timestamps used for classification) must be exactly one offset-aware ISO 8601 timestamp (`Z` or `+HH:MM`, optional fractional seconds), optionally in one balanced backtick code span, with no surrounding prose. `validate_versions.py` uses a separate parser that is not covered by this stricter field check.
 - A modified `Original Observation` still requires a complete record that preserves the original text (`INTEGRITY-008`).
 
 The validator cannot judge whether a correction is factually justified; that remains a human review under [AD-005](../governance/ANTI_DRIFT.md). `governance/ANTI_DRIFT.md` itself uses supersession wording in rule text outside a revision row, so editing that document currently requires human review of a reported `INTEGRITY-010` result.
@@ -65,3 +66,4 @@ python3 -m unittest discover -s scripts/tests
 | 1.0.1 | 2026-10-08T11:11:19-05:00 | Documented both accepted countermeasure filename forms used by repository architecture and scenario modules. | Kevin Mahan |
 | 1.1.0 | 2026-11-26T23:00:11-06:00 | Documented cumulative revision-chain validation for VERSION-007 and the validator regression tests. | Kevin Mahan |
 | 1.2.0 | 2026-11-27T04:14:59-06:00 | Documented INTEGRITY-010 section-aware correction records, INTEGRITY-011 and INTEGRITY-012 structural checks, structured-editing enforcement limits, and the integrity regression tests. | Kevin Mahan |
+| 1.2.1 | 2026-11-27T04:44:42-06:00 | Documented finding-specific correction resolution, strict full-field timestamp validation, and conservative administrative revision classification for INTEGRITY-010. | Kevin Mahan |
