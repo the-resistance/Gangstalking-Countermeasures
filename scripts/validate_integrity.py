@@ -609,13 +609,13 @@ def superseded_problems(structure: Structure, historical: str | None) -> list[tu
         section = innermost_section(structure, index)
         heading_id = leading_identifier(section.title) if section else None
         leading = leading_identifier(structure.lines[bounds[0]]) or heading_id
-        ids = {leading} if leading else identifiers(block)
+        ids = {leading} if leading else set()
         section_title = section.title if section else ""
         linked = [
             record
             for record in records
             if (ids and ids & reference_identifiers(record))
-            or (not ids and record.fields.get("original") and normalize(record.fields["original"]) in normalize(block))
+            or (not ids and not reference_identifiers(record) and record.fields.get("original") and normalize(record.fields["original"]) in normalize(block))
         ]
         label = ", ".join(sorted(ids)) if ids else "the statement at this location"
         if not linked:
