@@ -29,6 +29,7 @@ I believe concentrated power without accountability can encourage arrogance, mor
 - [Scientific bibliography and current source-verification status](docs/research/PHASE-2A-SCIENTIFIC-BIBLIOGRAPHY.md#current-verification-status)
 - [Citation URL audit](docs/audits/PHASE-2B-CITATION-URL-AUDIT.md)
 - [Research and Investigative Field Manual](MANUAL.md)
+- [Regulatory Oversight and Redress](docs/research/REGULATORY-OVERSIGHT-AND-REDRESS.md)
 - [RSH-001 — Voice-to-Skull research document](research/001-voice-to-skull-v2k.md)
 - [Documentation site](index.md) (GitHub Pages deployment has not been confirmed)
 
@@ -134,9 +135,9 @@ This is the author's personal statement of determination to continue documenting
 - **Document Title:** Observation & Countermeasure Field Manual
 - **Document ID:** README-001
 - **Author:** Kevin Mahan
-- **Version:** 1.4.0
+- **Version:** 1.5.0
 - **Created:** 2026-10-08T09:39:41-05:00
-- **Last Updated:** 2026-11-25T21:29:28-06:00
+- **Last Updated:** 2026-11-26T22:34:15-06:00
 
 ## Revision History
 
@@ -147,3 +148,4 @@ This is the author's personal statement of determination to continue documenting
 | 1.2.0 | 2026-11-03T13:35:51-06:00 | Linked the central research and investigative manual and updated the repository-development navigation note. | Kevin Mahan |
 | 1.3.0 | 2026-11-16T16:28:42-06:00 | Added project identity, scoped research overview, bibliography and site navigation, evidence-status guidance, reproducible documentation checks, and contribution guidance. | Kevin Mahan |
 | 1.4.0 | 2026-11-25T21:29:28-06:00 | Added author’s statement and research abstract. | Kevin Mahan |
+| 1.5.0 | 2026-11-26T22:34:15-06:00 | Linked the Regulatory Oversight and Redress document from Start Here. | Kevin Mahan |
