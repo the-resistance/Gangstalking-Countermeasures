@@ -2,9 +2,9 @@
 Document Title: Copilot Repository Instructions
 Document ID: GOV-COPILOT-001
 Author: Kevin Mahan
-Version: 1.0.0
+Version: 1.2.0
 Created: 2026-10-08T10:12:48-05:00
-Last Updated: 2026-10-08T10:12:48-05:00
+Last Updated: 2026-11-26T20:18:48-06:00
 ---
 
 # Copilot Repository Instructions
@@ -76,8 +76,26 @@ If historical observations, evidence records, or scenario content are removed un
 
 The README describes the repository's mission and general purpose; keep operational rules in the governance documents. Do not create investigative subjects or scenarios, fabricate findings, or expand repository scope without explicit authorization. Preserve established project identifiers and author attribution as specified in [Anti-Drift](../governance/ANTI_DRIFT.md).
 
+## Execution diagnostics and permission handling
+
+This section is the canonical execution and recovery policy. Versioning governs metadata and revision history; Anti-Drift governs content integrity; scripts/README.md describes validators. Historical audit reports and task prompts are not independent standing policies. Report genuine conflicts before affected work; continue unrelated authorized work.
+
+At phase start identify the session, branch, baseline, task counters, available tools and publication workflow. Inspect available capabilities without changing permissions or security settings. Do not assume authorization from repository ownership.
+
+Keep verbose diagnostics in a temporary location outside the public repository, or in the session if private temporary storage is unavailable. Never stage, commit, push, or publish raw diagnostic logs to public branches, issues, pull requests or artifacts. Temporary logs are not managed project documentation. Retain them until diagnostic review is complete, then remove temporary copies where supported. Only sanitized change summaries belong in CHANGELOG.md.
+
+Record each substantive operation before execution and its result immediately afterward: actual timestamp, operation, status, exit code, stdout, stderr, exact denial text when available, affected files and checkpoint. Redact secrets and personal data. Distinguish authorization denial, process failure, validation failure, Git conflict and infrastructure failure. Mark unavailable details explicitly; never invent them.
+
+Run validators independently using the documented commands, without pipelines masking exit status. Use the supported agent publication workflow. Do not change Git identity unnecessarily, retry explicitly denied operations, or circumvent controls. Preserve partial work and continue independent authorized tasks where feasible. Do not restart completed work automatically.
+
+If diagnostics cannot be accessed privately by the operator, or any required operation fails, return the complete sanitized diagnostic report in exactly one continuous fenced plain-text code block, with no nested fences, tables, or prose outside it. Include phase status, baseline, all attempted operations and results, exact available errors, last successful checkpoint, unfinished work, publication status and next required action. Escape any embedded fence sequences as plain text. Never return only PHASE BLOCKED.
+
+Declare PHASE COMPLETE only when required work, validation and supported publication are confirmed. Otherwise report actual partial or blocked status using the diagnostic format above.
+
 ## Revision History
 
 | Version | Timestamp | Description | Author |
 |---------|-----------|-------------|--------|
 | 1.0.0 | 2026-10-08T10:12:48-05:00 | Initial publication of repository-wide Copilot instructions. | Kevin Mahan |
+| 1.1.0 | 2026-11-26T00:23:25-06:00 | Added phase diagnostics, permission handling, managed publication and failure-reporting fallback. | Kevin Mahan |
+| 1.2.0 | 2026-11-26T20:18:48-06:00 | Clarified policy authority, private temporary diagnostics, fault isolation and single-block failure reporting. | Kevin Mahan |
