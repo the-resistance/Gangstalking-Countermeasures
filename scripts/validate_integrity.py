@@ -609,6 +609,20 @@ def superseded_problems(structure: Structure, historical: str | None) -> list[tu
         section = innermost_section(structure, index)
         heading_id = leading_identifier(section.title) if section else None
         leading = leading_identifier(structure.lines[bounds[0]]) or heading_id
+        # Revision rows have a version in the first cell, not a finding ID.
+        # Accept only an explicit, single finding subject in the description.
+        if section and section.title in REVISION_TITLES and number in revision_rows:
+            description = revision_rows[number][2]
+            subject = re.fullmatch(
+                r"(?i:Finding\s+)(" + IDENTIFIER_RE.pattern
+                + r")\s+(?i:(?:(?:is|was)\s+)?superseded)(?:\s+[^.!?;]+)?[.!]?",
+                description.strip(),
+            )
+            leading = (
+                subject.group(1)
+                if subject and identifiers(description) == {subject.group(1)}
+                else None
+            )
         ids = {leading} if leading else set()
         section_title = section.title if section else ""
         linked = [
