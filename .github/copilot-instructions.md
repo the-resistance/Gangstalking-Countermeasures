@@ -2,9 +2,9 @@
 Document Title: Copilot Repository Instructions
 Document ID: GOV-COPILOT-001
 Author: Kevin Mahan
-Version: 1.3.0
+Version: 1.4.0
 Created: 2026-10-08T10:12:48-05:00
-Last Updated: 2026-11-26T22:19:35-06:00
+Last Updated: 2026-11-27T04:14:59-06:00
 ---
 
 # Copilot Repository Instructions
@@ -96,6 +96,19 @@ If diagnostics cannot be accessed privately by the operator, or any required ope
 
 Declare PHASE COMPLETE only when required work, validation and supported publication are confirmed. Otherwise report actual partial or blocked status using the diagnostic format above.
 
+## Execution Reliability (v1.4.0)
+
+These rules extend, and do not replace, the operating sequence, diagnostics, atomic execution, denial handling, and anti-drift safeguards above. Authority for versions and content integrity remains with [Versioning](../governance/VERSIONING.md) and [Anti-Drift](../governance/ANTI_DRIFT.md).
+
+- **REL-001 Execution preflight.** Before editing, read the applicable governance, workflow, validator, and test files in full; fetch and confirm the expected baseline; report unexpected changes before editing; create the working branch from that baseline; and inspect, without changing, available permissions, branch protection, required checks, and workflows. Treat an unreadable setting as unverified, not as compatible.
+- **REL-002 Structured Markdown editing.** Parse metadata and table boundaries; snapshot existing historical revision rows; preserve the original `Created` timestamp; apply only authorized changes; choose each document's version independently; append each complete revision row on its own line; confirm metadata, revision history, and `CHANGELOG.md` agree; reject malformed or duplicate rows; compare protected content; and review every deletion before publication. State which of these the validators enforce and which rely on diff review; never claim enforcement that does not exist. Report a need to change files outside the authorized manifest as a dependency and request authorization first.
+- **REL-003 Regression-first defect correction.** Before correcting a validator defect, add a regression test that reproduces it and record the failing result; then implement the correction and confirm the test passes. Do not remove a rule, convert a failure to a warning, or exempt content merely because of where it appears. Keep existing regression tests.
+- **REL-004 Precise execution-state reporting.** Report one state per operation or phase: `COMPLETE`, `AWAITING_CI`, `AWAITING_APPROVAL`, `VALIDATION_FAILED`, `PERMISSION_DENIED`, `INFRASTRUCTURE_UNAVAILABLE`, `PARTIAL_COMPLETE`, or `BLOCKED`. Administrative approval is not a failed validator or a failed implementation. For pending CI, inspect existing runs and do not restart completed implementation. For an approval requirement, give the exact supported approval link. Use `BLOCKED` only when no authorized progress is possible. Do not report completed implementation that awaits CI as blocked.
+- **REL-005 Consolidated publication.** Validate locally, review the complete diff against the baseline, and publish related changes in one commit and one pull request wherever feasible. Do not create redundant commits to trigger another workflow. Do not merge without release authorization, and do not force-push, rebase, or delete branches.
+- **REL-006 Workflow security boundaries.** Keep workflow and job permissions at `contents: read`, GitHub-hosted runners, full checkout history, and `persist-credentials: false`. Do not add privileged pull request triggers, write tokens, secrets, or self-hosted runners. Pin actions to commit SHAs only when the SHA is independently verified; never invent one. Do not change branch protection or rulesets. Restrict triggers only after required checks are confirmed compatible; otherwise defer and report the deferral.
+- **REL-007 External source-review provenance.** Handoffs from external reviewers must separately state reported access, inspected source text, claim-level verification, and independent human review. Do not treat one as evidence of another, and never invent citations.
+- **REL-008 Recovery without repeated work.** On interruption, determine the last confirmed checkpoint from the branch, commits, and runs, then resume at the first unfinished step. Do not repeat completed work. On permission denial, stop the denied operation and do not retry or bypass it; for an unavailable dependency, continue independent authorized work and report the dependency.
+
 ## Revision History
 
 | Version | Timestamp | Description | Author |
@@ -104,3 +117,4 @@ Declare PHASE COMPLETE only when required work, validation and supported publica
 | 1.1.0 | 2026-11-26T00:23:25-06:00 | Added phase diagnostics, permission handling, managed publication and failure-reporting fallback. | Kevin Mahan |
 | 1.2.0 | 2026-11-26T20:18:48-06:00 | Clarified policy authority, private temporary diagnostics, fault isolation and single-block failure reporting. | Kevin Mahan |
 | 1.3.0 | 2026-11-26T22:19:35-06:00 | Required atomic execution, direct diagnostic capture and explicit denial-scope handling. | Kevin Mahan |
+| 1.4.0 | 2026-11-27T04:14:59-06:00 | Added Execution Reliability rules REL-001 to REL-008 covering preflight, structured editing, regression-first corrections, execution states, consolidated publication, workflow security, source-review provenance, and recovery; no existing rule was removed or weakened. | Kevin Mahan |
