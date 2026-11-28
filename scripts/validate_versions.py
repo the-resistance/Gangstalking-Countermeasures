@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import datetime as dt
 import re
 import subprocess
 import sys
@@ -56,12 +57,37 @@ def document_metadata(text: str, relative: str) -> tuple[dict[str, str], int]:
     return (visible, 0) if visible.get("Document ID") else ({}, 0)
 
 
-def iso_timestamp(value: str) -> datetime | None:
+TIMESTAMP_FIELD_RE = re.compile(
+    r"(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})(?:\.(\d+))?(?:(Z)|([+-])(\d{2}):(\d{2}))"
+)
+
+
+def iso_timestamp(value: str) -> dt.datetime | None:
+    """Parse a field that is exactly one offset-aware ISO 8601 timestamp, optionally in one balanced code span."""
+    text = value.strip()
+    if text.startswith("`") or text.endswith("`"):
+        wrapper = re.fullmatch(r"(`{1,2})([^`]+)\1", text)
+        if not wrapper:
+            return None
+        text = wrapper.group(2).strip()
+    match = TIMESTAMP_FIELD_RE.fullmatch(text)
+    if not match:
+        return None
+    year, month, day, hour, minute, second = (int(match.group(i)) for i in range(1, 7))
+    if match.group(8):
+        offset = dt.timedelta(0)
+    else:
+        offset_hours, offset_minutes = int(match.group(10)), int(match.group(11))
+        if offset_hours > 23 or offset_minutes > 59:
+            return None
+        offset = dt.timedelta(hours=offset_hours, minutes=offset_minutes)
+        if match.group(9) == "-":
+            offset = -offset
+    microsecond = int((match.group(7) or "0")[:6].ljust(6, "0"))
     try:
-        parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
+        return dt.datetime(year, month, day, hour, minute, second, microsecond, tzinfo=dt.timezone(offset))
     except ValueError:
         return None
-    return parsed if parsed.tzinfo is not None and parsed.utcoffset() is not None else None
 
 
 def revision_rows(text: str) -> list[tuple[str, str, str, str]]:
