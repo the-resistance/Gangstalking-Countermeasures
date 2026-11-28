@@ -140,5 +140,21 @@ class EndToEndTests(unittest.TestCase):
         self.assertIn("VERSION-007", result.stdout)
 
 
+class TimestampTests(unittest.TestCase):
+    def test_strict_timestamp_rejections(self):
+        for value in ("2026-11-27 10:00:00Z", "2026-11-27T10:00Z",
+                      "2026-11-27T10:00:00+06:60", "2026-02-30T10:00:00Z",
+                      "2026-11-27T10:00:00", "2026-11-27T10:00:00+24:00",
+                      "on 2026-11-27T10:00:00Z", "2026-11-27T10:00:00Z approx."):
+            with self.subTest(value=value):
+                self.assertIsNone(validate_versions.iso_timestamp(value))
+
+    def test_strict_timestamp_acceptance(self):
+        for value in ("2026-11-27T10:00:00Z", "2026-11-27T10:00:00-06:00",
+                      "2026-11-27T10:00:00.123456+05:30", "`2026-11-27T10:00:00Z`"):
+            with self.subTest(value=value):
+                self.assertIsNotNone(validate_versions.iso_timestamp(value))
+
+
 if __name__ == "__main__":
     unittest.main()
