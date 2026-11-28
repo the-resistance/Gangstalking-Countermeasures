@@ -2,9 +2,9 @@
 Document Title: Gangstalking Countermeasures Research Archive
 Document ID: SITE-PAGES-001
 Author: Kevin Mahan
-Version: 1.1.0
+Version: 1.2.0
 Created: 2026-11-16T16:05:25-06:00
-Last Updated: 2026-11-28T23:59:00Z
+Last Updated: 2026-11-28T23:59:01Z
 layout: default
 title: "Gangstalking Countermeasures — Khalisti | BlitzWaffe Defense"
 description: Research into technology misuse, human dignity, scientific evidence, ethical safeguards, and lawful accountability.
@@ -35,9 +35,21 @@ I believe concentrated power without accountability can encourage arrogance, mor
 
 Unauthorized surveillance, coercion, impersonation, or experimentation can violate privacy, autonomy and human dignity. Where such conduct occurs, its consequences can extend beyond the individual to families, employment, financial security and public trust. The ethical question is not merely whether a technology works, but whether its use is justified, proportionate, authorized and accountable.
 
+## Reported experiences and research questions
+
+The [audible-beeping scenario](scenarios/001-audible-beeping-transitioning.md) preserves the author's original report and distinguishes the experience from its unresolved cause. Unexpected sounds and perceived speech merit careful assessment, including ordinary equipment, environmental and hearing-related explanations. An independent professional assessment can help clarify uncertainties.
+
 ## From scientific capability to evidence
 
 The project examines [technology research](manual/04-technology-research.md), including RF auditory phenomena, directional acoustics and electromagnetic interference. The [scientific bibliography](docs/research/PHASE-2A-SCIENTIFIC-BIBLIOGRAPHY.md) and [citation audit](docs/audits/PHASE-2B-CITATION-URL-AUDIT.md) provide the source trail. A documented physical effect is distinct from evidence of its deployment, causation or responsibility in a particular event.
+
+## Public research and institutional transparency
+
+The Department of State commissioned a National Academies assessment of unexplained illnesses among overseas personnel. Its [2020 report](https://doi.org/10.17226/25889) considered multiple possible mechanisms; it did not establish a perpetrator or prove a cause. The [2024 NIH research announcement](https://www.nih.gov/news-events/news-releases/nih-studies-find-severe-symptoms-havana-syndrome-no-evidence-mri-detectable-brain-injury-or-biological-abnormalities) reported significant symptoms but no significant MRI-detectable brain injury or differences in most clinical measures compared with controls. These findings concern the studied populations, not individual reports in this archive.
+
+## Human rights and research ethics
+
+The [Belmont Report](https://www.hhs.gov/ohrp/regulations-and-policy/belmont-report/read-the-belmont-report/index.html) sets out respect for persons, beneficence and justice as foundational research ethics principles. Deceptive communications and unauthorized experimentation, where established, raise questions about autonomy, consent and harm. See [Regulatory Oversight and Redress](docs/research/REGULATORY-OVERSIGHT-AND-REDRESS.md) for distinctions between ethical principles and applicable law.
 
 ## From evidence to accountability
 
@@ -48,6 +60,10 @@ The project examines [technology research](manual/04-technology-research.md), in
 5. Pursue appropriate lawful remedies where evidence supports them, prioritizing prevention and protection rather than retaliation.
 
 The [research and investigative field manual](MANUAL.md), [evidence preservation guidance](manual/06-evidence-preservation.md) and [Regulatory Oversight and Redress](docs/research/REGULATORY-OVERSIGHT-AND-REDRESS.md) develop these principles. The [evidence model](docs/evidence-model.md) explains how findings are classified.
+
+## Personal protection and lawful assistance
+
+Prioritize personal safety and avoid confrontation or accusations based on ambiguous events. For suspected impersonation, verify communications through a known contact channel before acting. Seek qualified medical or technical assessment for unexplained sounds or symptoms. Preserve existing relevant records lawfully and consult an attorney about specific, substantiated concerns. The [Department of Justice civil rights reporting portal](https://civilrights.justice.gov/report/) accepts reports of suspected civil rights violations within its remit; filing is not a determination of wrongdoing.
 
 ## The objective
 
@@ -61,3 +77,4 @@ Build a coherent public research resource that advances scientific understanding
 |---------|-----------|-------------|--------|
 | 1.0.0 | 2026-11-16T16:28:42-06:00 | Added the root-source Pages landing page with site-relative research navigation, scope limitations, and deployment-status disclosure. | GitHub Copilot |
 | 1.1.0 | 2026-11-28T23:59:00Z | Reorganized the public landing page around the full research abstract, ethical implications, scientific foundation, evidence standards and lawful accountability. | Kevin Mahan |
+| 1.2.0 | 2026-11-28T23:59:01Z | Added scenario navigation, public research references, ethical principles and lawful assistance resources. | Kevin Mahan |
